@@ -1,0 +1,29 @@
+.colr{
+	color: #c9982f;
+}
+
+.box{
+    padding: 20px;
+    color: #c9982f;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 0;
+    border:3px solid rgba(0,0,0,.70);
+    margin-top: 10px;
+
+}
+.box:hover{
+    color: #fff;
+    background-color: #c9982f;
+    border-color: #c9982f;
+    transition: 0.5s;
+
+}
+
+.icon-menu{
+	font-size: 100px;
+}
+a{
+	text-decoration: none !important;
+}
