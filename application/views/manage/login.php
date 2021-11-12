@@ -27,16 +27,16 @@
         <img src="<?php echo upload_url('school/logo_smk.png') ?>" class="img-responsive">
         <?php } ?>
       </div>
-      <p class="merk"><span style="color: #2ABB9B">SPP</span> SMKN 12 Malang</p> 
+      <p class="merk"><span style="color: #c9982f">SPP</span> SMKN 12 Malang</p> 
       <p class="school">Sistem Pembayaran SPP</p> 
-      <p class="school"><?php echo $setting_school['setting_value'] ?></p> 
+       
     </div>
     <div class="col-md-7">
       <div class="box">
         <?php echo form_open('manage/auth/login', array('class'=>'login100-form validate-form')); ?>
 
         <div class="col-md-12">
-          <p class="title-login">Admin Login</p>
+          <p class="title-login">Login Petugas</p>
           <?php if ($this->session->flashdata('failed')) { ?>
           <br><br>
         <div class="alert alert-danger alert-dismissible" style="margin-top: -85px !important;">
