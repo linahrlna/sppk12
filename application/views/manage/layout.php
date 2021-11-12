@@ -73,7 +73,7 @@
                 <?php if ($this->session->userdata('user_image') != null) { ?>
                   <img src="<?php echo upload_url().'/users/'.$this->session->userdata('user_image'); ?>" class="user-image">
                 <?php } else { ?>
-                  <img src="<?php echo media_url() ?>img/user.png" class="user-image">
+                  <img src="<?php echo media_url() ?>img/l-1.jpg" class="user-image">
                 <?php } ?>
                 <span class="hidden-xs">Petugas</span>
               </a>
@@ -83,7 +83,7 @@
                   <?php if ($this->session->userdata('user_image') != null) { ?>
                     <img src="<?php echo upload_url().'/users/'.$this->session->userdata('user_image'); ?>" class="img-circle">
                   <?php } else { ?>
-                    <img src="<?php echo media_url() ?>img/user.png" class="img-circle">
+                    <img src="<?php echo media_url() ?>img/l-1.jpg" class="img-circle">
                   <?php } ?>
 
                   <p>Petugas
