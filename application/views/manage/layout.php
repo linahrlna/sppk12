@@ -120,12 +120,7 @@
 
 
 <!-- /.content-wrapper -->
-<footer class="main-footer">
-  <div class="pull-right hidden-xs">
-    <?php echo $this->config->item('app_name').' '.$this->config->item('version') ?>
-  </div>
-  <?php echo $this->config->item('created') ?>
-</footer>
+
 
 <!-- jQuery 3 -->
 
