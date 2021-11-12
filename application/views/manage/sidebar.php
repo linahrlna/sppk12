@@ -54,9 +54,6 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="<?php echo ($this->uri->segment(2) == 'pos') ? 'active' : '' ?> ">
-              <a href="<?php echo site_url('manage/pos') ?>"><i class="fa  <?php echo ($this->uri->segment(2) == 'pos') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Pos Keuangan</a>
-            </li>
             <li class="<?php echo ($this->uri->segment(2) == 'payment') ? 'active' : '' ?> ">
               <a href="<?php echo site_url('manage/payment') ?>"><i class="fa  <?php echo ($this->uri->segment(2) == 'payment') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Jenis Pembayaran</a>
             </li>
