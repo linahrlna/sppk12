@@ -5,11 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>SPP-PONPES| Login</title>
+  <title>SPP | Login</title>
 
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
-  <link rel="icon" type="image/png" href="<?php echo media_url('img/logo.png') ?>">
+  <link rel="icon" type="image/png" href="<?php echo media_url('img/logosmk12.png') ?>">
 
   <link href="<?php echo media_url() ?>css/bootstrap.min.css" rel="stylesheet" />
   <link href="<?php echo media_url() ?>css/font-awesome.min.css" rel="stylesheet" />
@@ -24,15 +24,12 @@
         <?php if (isset($setting_logo) AND $setting_logo['setting_value'] == NULL) { ?>
         <img src="<?php echo media_url('img/logo.png') ?>" class="img-responsive">
         <?php } else { ?>
-        <img src="<?php echo upload_url('school/' . $setting_logo['setting_value']) ?>" class="img-responsive">
+        <img src="<?php echo upload_url('school/logo_smk.png') ?>" class="img-responsive">
         <?php } ?>
       </div>
-      <p class="merk"><span style="color: #2ABB9B">SPP</span> PESANTREN</p> 
-      <?php if (isset($setting_school) AND $setting_school['setting_value'] == '-') { ?>
-      <p class="school">Sistem Pembayaran Pondok Pesantren</p> 
-      <?php } else { ?>
+      <p class="merk"><span style="color: #2ABB9B">SPP</span> SMKN 12 Malang</p> 
+      <p class="school">Sistem Pembayaran SPP</p> 
       <p class="school"><?php echo $setting_school['setting_value'] ?></p> 
-      <?php } ?>
     </div>
     <div class="col-md-7">
       <div class="box">
@@ -60,7 +57,7 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-login">Login</button>
+          <button class="btn btn-login">Masuk</button>
         </div>
         <?php echo form_close(); ?>
       </div>
