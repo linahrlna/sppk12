@@ -1,7 +1,7 @@
 <section class="content">
   <div class="row"> 
     <div class="col-md-12">
-      <div class="box box-info box-solid" style="border: 1px solid #8a6d3b !important;">
+      <div class="box box-info box-solid" style="border: 1px solid #2ABB9B !important;">
         <div class="box-header backg with-border">
           <h3 class="box-title">Cek Data Pembayaran Santri</h3>
         </div><!-- /.box-header -->
@@ -33,7 +33,7 @@
 
     <div class="row">
       <div class="col-md-6">
-        <div class="box box-info box-solid" style="border: 1px solid #8a6d3b !important;">
+        <div class="box box-info box-solid" style="border: 1px solid #2ABB9B !important;">
           <div class="box-header backg with-border">
             <h3 class="box-title">Informasi Santri</h3>
           </div><!-- /.box-header -->
@@ -96,7 +96,7 @@
         </div>
         <div class="col-md-6">
           <!-- List Tagihan Bulanan --> 
-          <div class="box box-info box-solid" style="border: 1px solid #8a6d3b !important;">
+          <div class="box box-info box-solid" style="border: 1px solid #2ABB9B !important;">
             <div class="box-header backg with-border">
               <h3 class="box-title">Tagihan Bulanan</h3>
             </div><!-- /.box-header -->
@@ -159,11 +159,21 @@
             </table>
           </div>
         </div>
-        <div >
-          <!-- /.box-header -->
+        <div class="box box-info box-solid" style="border: 1px solid #2ABB9B !important;">
+          <div class="box-header backg with-border">
+            <h3 class="box-title">Tagihan Lainnya</h3>
+          </div><!-- /.box-header -->
           <div class="box-body table-responsive">
             <table class="table table-striped table-hover">
-              
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Jenis Pembayaran</th>
+                  <th>Total Tagihan</th>
+                  <th>Dibayar</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
               <tbody>
                 <?php
                 $i =1;
