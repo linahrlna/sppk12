@@ -75,7 +75,7 @@
                 <?php } else { ?>
                   <img src="<?php echo media_url() ?>img/user.png" class="user-image">
                 <?php } ?>
-                <span class="hidden-xs"><?php echo ucfirst($this->session->userdata('ufullname')); ?></span>
+                <span class="hidden-xs">Petugas</span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
@@ -86,19 +86,18 @@
                     <img src="<?php echo media_url() ?>img/user.png" class="img-circle">
                   <?php } ?>
 
-                  <p>
-                    <?php echo ucfirst($this->session->userdata('ufullname')); ?>
-                    <small><?php echo ucfirst($this->session->userdata('urolename')); ?></small>
-                    <small><?php echo $this->session->userdata('uemail'); ?></small>
+                  <p>Petugas
+                    <small>SUPERUSER</small>
+                    <small>petugas@gmail.com</small>
                   </p>
                 </li>
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <a href="<?php echo site_url('manage/profile') ?>" class="btn btn-default btn-flat">Profile</a>
+                    <a href="<?php echo site_url('manage/profile') ?>" class="btn btn-default btn-flat">Profil</a>
                   </div>
                   <div class="pull-right">
-                    <a href="<?php echo site_url('manage/auth/logout?location=' . htmlspecialchars($_SERVER['REQUEST_URI'])) ?>" class="btn btn-default btn-flat">Sign out</a>
+                    <a href="<?php echo site_url('manage/auth/logout?location=' . htmlspecialchars($_SERVER['REQUEST_URI'])) ?>" class="btn btn-default btn-flat">Keluar</a>
                   </div>
                 </li>
               </ul>
