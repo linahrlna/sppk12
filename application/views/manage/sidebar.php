@@ -72,9 +72,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="<?php echo ($this->uri->segment(2) == 'kredit') ? 'active' : '' ?> ">
-              <a href="<?php echo site_url('manage/kredit') ?>"><i class="fa  <?php echo ($this->uri->segment(2) == 'kredit') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Pengeluaran</a>
-            </li>
+            
             <li class="<?php echo ($this->uri->segment(2) == 'debit') ? 'active' : '' ?> ">
               <a href="<?php echo site_url('manage/debit') ?>"><i class="fa  <?php echo ($this->uri->segment(2) == 'debit') ? 'fa-dot-circle-o' : 'fa-circle-o' ?>"></i> Penerimaan</a>
             </li>
