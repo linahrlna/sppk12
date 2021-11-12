@@ -39,7 +39,7 @@
 
 
 		<?php $this->load->view('frontend/home') ?>
-		<?php $this->load->view('frontend/footer') ?>
+		
 
 		<script src="<?php echo media_url() ?>/js/bootstrap.min.js"></script>
 	</body>
