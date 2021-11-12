@@ -125,7 +125,7 @@ html .fc,
 	}
 	
 .fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
-	background-color: #36D7B7;
+	background-color: #c9982f;
 	color:#fff;
 	font-weight:bold;
 	}
