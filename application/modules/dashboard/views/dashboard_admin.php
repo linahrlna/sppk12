@@ -205,7 +205,7 @@
       right: 'prevYear,nextYear',
     },
     
-    events: "<?php echo site_url('manage/dashboard/get');?>",
+    events: "<?php echo site_url('admin/dashboard/get');?>",
 
     dayClick: function(date, jsEvent, view) {
 
