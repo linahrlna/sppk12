@@ -22,7 +22,7 @@
 						<?php if (!empty($user['user_image'])) { ?>
 						<img src="<?php echo upload_url('users/'.$user['user_image']) ?>" class="profile-user-img img-responsive img-circle">
 						<?php } else { ?>
-						<img src="<?php echo media_url('img/user.png') ?>" class="profile-user-img img-responsive img-circle">
+						<img src="<?php echo media_url('img/admin.png') ?>" class="profile-user-img img-responsive img-circle">
 						<?php } ?>
 
 						<h3 class="profile-username text-center"><?php echo $user['user_full_name']; ?></h3>
