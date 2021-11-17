@@ -96,28 +96,6 @@
           <p>Ukuran Logo 50x50 pixel</p>
         </div>
       </div>
-      <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#gateway"><i class="fa fa-arrow-down"></i> Set SMS Gateway</button>
-      <div id="gateway" class="collapse">
-        <div class="form-group label-floating">
-          <label class="control-label">Pengguna SMS Gateway</label>
-          <input type="text" name="setting_user_sms" value="<?php echo $setting_user_sms['setting_value'] ?>" class="form-control" required>
-        </div>
-        <div class="form-group label-floating">
-          <label class="control-label">Password SMS Gateway</label>
-          <input type="password" name="setting_pass_sms" value="<?php echo $setting_pass_sms['setting_value'] ?>" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label>Aktifkan SMS Gateway</label>
-          <div class="radio">
-            <label>
-              <input type="radio" name="setting_sms" value="Y" <?php echo ($setting_sms['setting_value'] == 'Y') ? 'checked' : ''; ?>> Ya
-            </label>&nbsp;&nbsp;
-            <label>
-              <input type="radio" name="setting_sms" value="N" <?php echo ($setting_sms['setting_value'] == 'N') ? 'checked' : ''; ?>> Tidak
-            </label>
-          </div>
-        </div>
-      </div>
     </div>
     <?php echo form_close() ?>
   </section>
