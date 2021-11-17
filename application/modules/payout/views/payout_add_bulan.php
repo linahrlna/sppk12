@@ -39,11 +39,6 @@
 								<td><?php echo $student['student_full_name'] ?></td>
 							</tr>
 							<tr>
-								<td>Nama Ibu Kandung</td>
-								<td>:</td>
-								<td><?php echo $student['student_name_of_mother'] ?></td>
-							</tr>
-							<tr>
 								<td>Kelas</td>
 								<td>:</td>
 								<td><?php echo $student['class_name'] ?></td>
