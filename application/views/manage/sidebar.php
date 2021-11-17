@@ -8,7 +8,7 @@
           <?php if ($this->session->userdata('user_image') != null) { ?>
           <img src="<?php echo upload_url().'/users/'.$this->session->userdata('user_image'); ?>" class="img-responsive">
           <?php } else { ?>
-          <img src="<?php echo media_url() ?>img/l-1.jpg" class="img-responsive">
+          <img src="<?php echo media_url() ?>img/admin.jpg" class="img-responsive">
           <?php } ?>
         </div>
         <div class="pull-left info">
