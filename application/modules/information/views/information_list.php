@@ -3,7 +3,7 @@
 	<section class="content-header">
 		<h1>
 			<?php echo isset($title) ? '' . $title : null; ?>
-			<small>List</small>
+			<small><b>List</b></small>
 		</h1>
 		<ol class="breadcrumb">
 			<li><a href="<?php echo site_url('manage') ?>"><i class="fa fa-th"></i> Home</a></li>

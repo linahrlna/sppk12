@@ -57,7 +57,7 @@
         <div class="row">
           <div class="">
             <div class="form-group label-floating">
-              <label class="control-label">Nama Kota/Kab</label>
+              <label class="control-label">Nama Kota/Kabupaten</label>
               <input type="text" name="setting_city" value="<?php echo $setting_city['setting_value'] ?>" class="form-control" required>
             </div>
           </div>
@@ -89,7 +89,7 @@
             <?php if (isset($setting_logo) AND $setting_logo['setting_value'] != NULL) { ?>
             <img src="<?php echo upload_url('school/' . $setting_logo['setting_value']) ?>" style="height: 50px" >
             <?php } else { ?>
-            <img src="<?php echo media_url('img/missing_logo.gif') ?>" id="target" alt="Choose image to upload">
+            <img src="<?php echo media_url('logosmk12.png') ?>" id="target" alt="Choose image to upload">
             <?php } ?>
           </a>
           <input type='file' id="setting_logo" name="setting_logo">
@@ -99,7 +99,7 @@
       <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#gateway"><i class="fa fa-arrow-down"></i> Set SMS Gateway</button>
       <div id="gateway" class="collapse">
         <div class="form-group label-floating">
-          <label class="control-label">User SMS Gateway</label>
+          <label class="control-label">Pengguna SMS Gateway</label>
           <input type="text" name="setting_user_sms" value="<?php echo $setting_user_sms['setting_value'] ?>" class="form-control" required>
         </div>
         <div class="form-group label-floating">

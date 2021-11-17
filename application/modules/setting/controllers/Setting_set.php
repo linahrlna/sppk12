@@ -15,9 +15,9 @@ class Setting_set extends CI_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('setting_school', 'Nama Sekolah', 'trim|required|xss_clean');
         $this->form_validation->set_rules('setting_address', 'Alamat', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('setting_phone', 'Nomor Telephone', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('setting_phone', 'Nomor Telepon', 'trim|required|xss_clean');
         $this->form_validation->set_rules('setting_district', 'Nama Kecamatan', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('setting_city', 'Nama Kota/Kab', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('setting_city', 'Nama Kota/Kabupaten', 'trim|required|xss_clean');
          $this->form_validation->set_rules('setting_level', 'Tingkat', 'trim|required|xss_clean');
          $this->form_validation->set_rules('setting_user_sms', 'User SMS Gateway', 'trim|required|xss_clean');
          $this->form_validation->set_rules('setting_pass_sms', 'Pass SMS Gateway', 'trim|required|xss_clean');

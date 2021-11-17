@@ -8,7 +8,7 @@ class Dashboard_set extends CI_Controller {
     {
         parent::__construct();
         if ($this->session->userdata('logged') == NULL) {
-            header("Location:" . site_url('manage/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
+            header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
         $this->load->model(array('users/Users_model', 'holiday/Holiday_model'));
         $this->load->model(array('student/Student_model', 'kredit/Kredit_model', 'debit/Debit_model', 'bulan/Bulan_model', 'setting/Setting_model', 'information/Information_model', 'bebas/Bebas_model', 'bebas/Bebas_pay_model'));
@@ -78,8 +78,8 @@ class Dashboard_set extends CI_Controller {
         $data['setting_logo'] = $this->Setting_model->get(array('id' => 6));
         $data['holiday'] = $this->Holiday_model->get();
         $data['title'] = 'Dashboard';
-        $data['main'] = 'dashboard_admin/dashboard_admin';
-        $this->load->view('manage/layout', $data);
+        $data['main'] = 'dashboard/dashboard_admin';
+        $this->load->view('admin/layout', $data);
     }
 
     public function get() {
