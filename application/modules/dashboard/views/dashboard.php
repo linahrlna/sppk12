@@ -19,6 +19,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text dash-text">Penerimaan Hari Ini</span>
+            <a href="manage/debit">
             <span class="info-box-number"><?php echo 'Rp. ' . number_format($total_bulan+$total_bebas+$total_debit, 0, ',', '.') ?></span>
           </div>
           <!-- /.info-box-content -->
@@ -41,6 +42,7 @@
             $totalAll = $total_bulan+$total_bebas+$total_debit;
             ?>
             <span class="info-box-text dash-text">Total Penerimaan</span>
+            <a href="#">
             <span class="info-box-number"><?php echo 'Rp. ' . number_format($totalAll - $total_kredit,0, ',', '.') ?></span>
           </div>
           <!-- /.info-box-content -->
@@ -55,6 +57,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text dash-text">Siswa Aktif</span>
+            <a href="manage/student">
             <span class="info-box-number"><?php echo $student ?></span>
           </div>
           <!-- /.info-box-content -->
