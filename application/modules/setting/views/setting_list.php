@@ -93,7 +93,7 @@
             <?php } ?>
           </a>
           <input type='file' id="setting_logo" name="setting_logo">
-          <p>Ukuran Logo 50x50 pixel</p>
+          <p>Ukuran 50x50 pixel</p>
         </div>
       </div>
     </div>
