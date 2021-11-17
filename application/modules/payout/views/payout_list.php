@@ -212,10 +212,7 @@
 					</div><!-- /.box-header -->
 					<div class="box-body">
 						<div class="nav-tabs-custom">
-							<ul class="nav nav-tabs">
-								<li class="active"><a href="#tab_1" data-toggle="tab">Bulanan</a></li>
-								<li><a href="#tab_2" data-toggle="tab">Bebas</a></li>
-							</ul>
+							
 							<div class="tab-content">
 								<div class="tab-pane active" id="tab_1">
 									<div class="box-body table-responsive">
@@ -255,92 +252,18 @@
 											</table>
 										</div>
 									</div>
-									<div class="tab-pane" id="tab_2">
+									
 										<!-- End List Tagihan Bulanan -->
 
 										<!-- List Tagihan Lainnya (Bebas) -->
 
-										<div class="box-body">
-											<a href="" class="btn btn-info btn-xs"><i class="fa fa-refresh"></i> Refresh</a>
-											<table class="table table-hover table-responsive table-bordered" style="white-space: nowrap;">
-												<thead>
-													<tr class="info">
-														<th>No.</th>
-														<th>Jenis Pembayaran</th>
-														<th>Total Tagihan</th>
-														<th>Dibayar</th>
-														<th>Status</th>
-														<th>Bayar</th>
-													</tr>
-												</thead>
-												<tbody>
-													<?php
-													$i =1;
-													foreach ($bebas as $row):
-														if ($f['n'] AND $f['r'] == $row['student_nis']) {
-															$sisa = $row['bebas_bill']-$row['bebas_total_pay'];
-															?>
-															<tr class="<?php echo ($row['bebas_bill'] == $row['bebas_total_pay']) ? 'success' : 'danger' ?>">
-																<td style="background-color: #fff !important;"><?php echo $i ?></td>
-																<td style="background-color: #fff !important;"><?php echo $row['pos_name'].' - T.A '.$row['period_start'].'/'.$row['period_end'] ?></td>
-																<td><?php echo 'Rp. ' . number_format($sisa, 0, ',', '.') ?></td>
-																<td><?php echo 'Rp. ' . number_format($row['bebas_total_pay'], 0, ',', '.') ?></td>
-																<td><a href="<?php echo site_url('manage/payout/payout_bebas/'. $row['payment_payment_id'].'/'.$row['student_student_id'].'/'.$row['bebas_id']) ?>" class="view-cicilan label <?php echo ($row['bebas_bill']==$row['bebas_total_pay']) ? 'label-success' : 'label-warning' ?>"><?php echo ($row['bebas_bill']==$row['bebas_total_pay']) ? 'Lunas' : 'Belum Lunas' ?></a></td>
-																<td width="40" style="text-align:center">
-																	<a data-toggle="modal" class="btn btn-success btn-xs <?php echo ($row['bebas_bill']==$row['bebas_total_pay']) ? 'disabled' : '' ?>" title="Bayar" href="#addCicilan<?php echo $row['bebas_id'] ?>"><span class="fa fa-money"></span> Bayar</a>
-																</td>
-															</tr>
-
-															<div class="modal fade" id="addCicilan<?php echo $row['bebas_id'] ?>" role="dialog">
-																<div class="modal-dialog modal-md">
-																	<div class="modal-content">
-																		<div class="modal-header">
-																			<button type="button" class="close" data-dismiss="modal">&times;</button>
-																			<h4 class="modal-title">Tambah Pembayaran/Cicilan</h4>
-																		</div>
-																		<?php echo form_open('manage/payout/payout_bebas/', array('method'=>'post')); ?>
-																		<div class="modal-body">
-																			<input type="hidden" name="bebas_id" value="<?php echo $row['bebas_id'] ?>">
-																			<input type="hidden" name="student_nis" value="<?php echo $row['student_nis'] ?>">
-																			<input type="hidden" name="student_student_id" value="<?php echo $row['student_student_id'] ?>">
-																			<input type="hidden" name="payment_payment_id" value="<?php echo $row['payment_payment_id'] ?>">
-																			<div class="form-group">
-																				<label>Nama Pembayaran</label>
-																				<input class="form-control" readonly="" type="text" value="<?php echo $row['pos_name'].' - T.A '.$row['period_start'].'/'.$row['period_end'] ?>">
-																			</div>
-																			<div class="form-group">
-																				<label>Tanggal</label>
-																				<input class="form-control" readonly="" type="text" value="<?php echo pretty_date(date('Y-m-d'),'d F Y',false) ?>">
-																			</div>
-																			<div class="row">
-																				<div class="col-md-6">
-																					<label>Jumlah Bayar *</label>
-																					<input type="text" required="" name="bebas_pay_bill" class="form-control numeric" placeholder="Jumlah Bayar">
-																				</div>
-																				<div class="col-md-6">
-																					<label>Keterangan *</label>
-																					<input type="text" required="" name="bebas_pay_desc" class="form-control" placeholder="Keterangan">
-																				</div>
-																			</div>
-																		</div>
-																		<div class="modal-footer">
-																			<button type="submit" class="btn btn-success">Simpan</button>
-																			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-																		</div>
-																		<?php echo form_close(); ?>
-																	</div>
-
-																	<?php 
-																}
-																$i++;
-															endforeach; 
-															?>				
-														</tbody>
-													</table> 
-												</div>
-											</div>
+										
+											
+											
+												
+											
 										<?php } ?>
-									</div>
+									
 								</div>
 							</div>
 						</div>
