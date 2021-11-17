@@ -60,7 +60,6 @@
 												<td><?php echo $row['student_nis']; ?></td>
 												<td><?php echo $row['student_full_name']; ?></td>
 												<td><?php echo $row['class_name']; ?></td>
-												<td><?php echo $row['student_name_of_mother']; ?></td>
 												<td><label class="label <?php echo ($row['student_status']==1) ? 'label-success' : 'label-danger' ?>"><?php echo ($row['student_status']==1) ? 'Aktif' : 'Tidak Aktif' ?></label></td>
 												<td>
 													<a href="<?php echo site_url('manage/student/rpw/' . $row['student_id']) ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Reset Password"><i class="fa fa-unlock"></i></a>
