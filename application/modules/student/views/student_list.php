@@ -45,7 +45,6 @@
 									<th>NIS</th>
 									<th>Nama</th>
 									<th>Kelas</th>
-									<th>Nama Ibu Kandung</th>
 									<th>Status</th>
 									<th>Aksi</th>
 								</tr>
