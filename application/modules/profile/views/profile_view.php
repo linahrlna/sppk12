@@ -29,12 +29,6 @@
 
 						<p class="text-muted text-center"><?php echo $user['role_name']; ?></p>
 
-						<ul class="list-group list-group-unbordered">
-							<li class="list-group-item">
-								<b>Followers</b> <a class="pull-right">1,322</a>
-							</li>
-							
-						</ul>
 						<br>
 
 						<a href="<?php echo site_url('manage/profile/cpw/') ?>" class="btn btn-info btn-block"><b>Ubah Password</b></a>
