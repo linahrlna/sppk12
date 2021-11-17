@@ -114,7 +114,7 @@
 
 				<div class="row">
 
-					<div class="col-md-5">
+					<div class="col-md-6">
 						<div class="box box-primary">
 							<div class="box-header with-border">
 								<h3 class="box-title">Transaksi Terakhir</h3>
@@ -140,38 +140,8 @@
 							</div>
 						</div>
 						</div>
-					
-					<div class="col-md-4">
-						<div class="box box-primary">
-							<div class="box-header with-border">
-								<h3 class="box-title">Pembayaran</h3>
-							</div>
-							<div class="box-body">
-								<form id="calcu" name="calcu" method="post" action="">
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Total</label>
-												<input type="text" class="form-control numeric" value="<?php echo $cash+$cashb ?>" name="harga" id="harga" placeholder="Total Pembayaran" onfocus="startCalculate()" onblur="stopCalc()">
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Dibayar</label>
-												<input type="text" class="form-control numeric" value="<?php echo $cash+$cashb ?>" name="bayar" id="bayar" placeholder="Jumlah Uang" onfocus="startCalculate()" onblur="stopCalc()">
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label>Kembalian</label>
-										<input type="text" class="form-control numeric" readonly="" name="kembalian" id="kembalian" onblur="stopCalc()">
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
 
-					<div class="col-md-3">
+					<div class="col-md-6">
 						<div class="box box-primary">
 							<div class="box-header with-border">
 								<h3 class="box-title">Cetak Bukti Pembayaran</h3>
