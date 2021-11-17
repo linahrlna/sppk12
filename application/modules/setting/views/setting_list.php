@@ -87,13 +87,13 @@
           <label >Logo Sekolah</label>
           <a href="#" class="thumbnail">
             <?php if (isset($setting_logo) AND $setting_logo['setting_value'] != NULL) { ?>
-            <img src="<?php echo upload_url('school/' . $setting_logo['setting_value']) ?>" style="height: 50px" >
+            <img src="<?php echo upload_url('school/' . $setting_logo['setting_value']) ?>" style="height: 70px" >
             <?php } else { ?>
             <img src="<?php echo media_url('logosmk12.png') ?>" id="target" alt="Choose image to upload">
             <?php } ?>
           </a>
           <input type='file' id="setting_logo" name="setting_logo">
-          <p>Ukuran Logo 50x50 pixel</p>
+          <p>Ukuran 70x70 pixel</p>
         </div>
       </div>
     </div>
