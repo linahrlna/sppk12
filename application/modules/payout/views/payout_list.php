@@ -78,14 +78,6 @@
 										<?php endforeach; ?>
 									</tr>
 									<tr>
-										<td>Nama Ibu Kandung</td>
-										<td>:</td>
-										<?php foreach ($siswa as $row): ?>
-											<?php echo (isset($f['n']) AND $f['r'] == $row['student_nis']) ?  
-											'<td>'.$row['student_name_of_mother'].'</td>' : '' ?> 
-										<?php endforeach; ?>
-									</tr>
-									<tr>
 										<td>Kelas</td>
 										<td>:</td>
 										<?php foreach ($siswa as $row): ?>
