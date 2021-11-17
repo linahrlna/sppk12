@@ -75,7 +75,7 @@
                 <?php } else { ?>
                   <img src="<?php echo media_url() ?>img/l-1.jpg" class="user-image">
                 <?php } ?>
-                <span class="hidden-xs">Petugas</span>
+                <span class="hidden-xs">Admin</span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
@@ -86,9 +86,9 @@
                     <img src="<?php echo media_url() ?>img/l-1.jpg" class="img-circle">
                   <?php } ?>
 
-                  <p>Petugas
+                  <p>Admin
                     <small>SUPERUSER</small>
-                    <small>petugas@gmail.com</small>
+                    <small>admin@gmail.com</small>
                   </p>
                 </li>
                 <!-- Menu Footer-->
