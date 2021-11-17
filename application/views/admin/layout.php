@@ -41,7 +41,7 @@
 
     <header class="main-header">
       <!-- Logo -->
-      <a href="<?php site_url('manage') ?>" class="logo">
+      <a href="<?php site_url('admin') ?>" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <?php if (!empty(logo())) { ?>
           <span class="logo-mini"><img src="<?php echo upload_url('school/logo_smk.png') ?>" style="height: 40px; margin-top: 5px; margin-left:5px;" class="pull-left"></span>
