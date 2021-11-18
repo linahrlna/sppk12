@@ -152,12 +152,7 @@
         </li>
 
       
-        <li class="<?php echo ($this->uri->segment(2) == 'maintenance') ? 'active' : '' ?>">
-          <a href="<?php echo site_url('manage/maintenance'); ?>">
-            <i class="fa fa-database"></i> <span>Pemeliharaan</span>
-            <span class="pull-right-container"></span>
-          </a>
-        </li>
+        
         <?php } ?>
 
       </ul>
