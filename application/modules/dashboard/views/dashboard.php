@@ -20,7 +20,7 @@
           <div class="info-box-content">
             <span class="info-box-text dash-text">Penerimaan Hari Ini</span>
             <a href="manage/debit">
-            <span class="info-box-number"><?php echo 'Rp. ' . number_format($total_bulan+$total_bebas+$total_debit, 0, ',', '.') ?></span>
+            <span class="info-box-number"><?php echo 'Rp. ' . number_format($total_bulan, 0, ',', '.') ?></span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -124,6 +124,23 @@
         <!-- /.box -->
       </div>
       <!-- /.col -->
+
+      <div class="col-md-6">
+        <div class="box box-info">
+          <div class="box-header with-border">
+            <h3 class="box-title">Grafik</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="box-body">
+
+          <div id="area-chartist-chart" class="chartist-chart" style="height: 320px"></div>
+          </div>
+        </div>
+      </div>
 
       <div class="col-md-6">
         <div class="box box-info">

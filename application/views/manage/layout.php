@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="<?php echo media_url() ?>/css/AdminLTE.min.css">
   <link rel="stylesheet" href="<?php echo media_url() ?>/css/style.css">
   <link rel="stylesheet" href="<?php echo media_url() ?>/css/load-font-googleapis.css">
+  <link rel="stylesheet" href="<?php echo media_url() ?>/css/chartist/chartist.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
    folder instead of downloading all of them to reduce the load. -->
    <!-- Notyfy JS - Notification -->
