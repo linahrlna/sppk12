@@ -81,7 +81,7 @@ public function index($offset = NULL) {
 
   $data['title'] = 'Cek Tagihan Siswa';
   $data['main'] = 'frontend/layout';
-  $this->load->view('manage/layout', $data);
+  $this->load->view('frontend/layout', $data);
 }
 
 
