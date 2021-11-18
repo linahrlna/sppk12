@@ -64,7 +64,6 @@
                       '<td>'.$row['student_full_name'].'</td>' : '' ?> 
                     <?php endforeach; ?>
                   </tr>
-                  
                   <tr>
                     <td>Kelas</td>
                     <td>:</td>
