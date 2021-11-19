@@ -69,60 +69,6 @@
     </div>
 
     <div class="row">
-      <div class="col-md-6">
-       <div class="box box-info">
-        <div class="box-header with-border">
-          <h3 class="box-title">Informasi</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-          </div>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-              <!-- Indicators --> 
-              <ol class="carousel-indicators ind"> 
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li> 
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li> 
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li> 
-              </ol> 
-              <!-- Wrapper for slides --> 
-              <div class="carousel-inner"> 
-                <?php
-                $i = 1;
-                foreach ($information as $row):
-                  ?>
-                  <div class="item <?php echo ($i == 1) ? 'active' : ''; ?>"> 
-                    <div class="row"> 
-                        <div class="adjust1"> 
-                            <div class="caption"> 
-                              <p class="text-info lead adjust2"><?php echo $row['information_title'] ?></p>  
-                              <blockquote class="adjust2"> <p><?php echo strip_tags(character_limiter($row['information_desc'], 250)) ?></p> 
-                              </blockquote> 
-                          </div> 
-                        </div> 
-                    </div> 
-                  </div> 
-                  <?php
-                  $i++;
-                endforeach;
-                ?>
-              </div> <!-- Controls --> 
-              <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"> 
-                <span class="glyphicon glyphicon-chevron-left" style="font-size:20px"></span> </a> 
-                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"> 
-                  <span class="glyphicon glyphicon-chevron-right" style="font-size:20px"></span> 
-                </a> 
-              </div> 
-            </div>
-
-        </div>
-        <!-- /.box -->
-      </div>
       <!-- /.col -->
 
       <div class="col-md-6">
