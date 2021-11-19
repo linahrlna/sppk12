@@ -82,39 +82,30 @@
             </div>
           </div>
           <div class="box-body">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<body>
+<canvas id="myChart" style="width:500px;height:423px"></canvas>
 
-         
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+<script>
+var xValues = ["Juni","Juli","Agstus","September","Oktober","November","Desember","Januari","Februari","Maret","April","Mei","Juni"];
+var yValues = [25.000,50.000,100.000,150.000,200.000,250.000,300.000];
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['bulan', 'Pemasukan', 'Pengeluaran'],
-          ['Juni',  100,      200],
-          ['Juli',  200,      300],
-          ['Agustus',  400,       220],
-        ]);
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+      borderColor: "orange",
+      fill: false
+    }]
+  },
+  options: {
+    legend: {display: false}
+  }
+});
+</script>
 
-        var options = {
-          title: 'Grafik Pembayaran Bulanan',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-
-        chart.draw(data, options);
-      }
-    </script>
-  
-  <body>
-    <div id="curve_chart" style="width: 500px; height: 300px"></div>
-  </body>
-</html>
-
-  </script>
           </div>
         </div>
       </div>
