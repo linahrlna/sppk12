@@ -117,13 +117,6 @@
           </ul>
         </li>
 
-        <li class="<?php echo ($this->uri->segment(2) == 'information') ? 'active' : '' ?>">
-          <a href="<?php echo site_url('manage/information'); ?>">
-            <i class="fa fa-bullhorn"></i> <span>Informasi</span>
-            <span class="pull-right-container"></span>
-          </a>
-        </li>
-
         <li class="<?php echo ($this->uri->segment(2) == 'setting' OR $this->uri->segment(2) == 'month') ? 'active' : '' ?> treeview">
           <a href="#">
             <i class="fa fa-gear text-stock"></i> <span>Pengaturan</span>
