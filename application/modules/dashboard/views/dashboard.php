@@ -95,7 +95,7 @@ new Chart("myChart", {
   data: {
     labels: xValues,
     datasets: [{ 
-      data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
+      data: [50000,100000,25000,1060,1070,1110,1330,2210,7830,2478],
       borderColor: "orange",
       fill: false
     }]
