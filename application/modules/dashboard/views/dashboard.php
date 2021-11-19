@@ -136,6 +136,46 @@
             </div>
           </div>
           <div class="box-body">
+          <html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['bulan', 'Pemasukan', 'Pengeluaran'],
+          ['Juni',  100,      200],
+          ['Juli',  200,      300],
+          ['Agustus',  400,       220],
+        ]);
+
+        var options = {
+          title: 'Grafik Pembayaran Bulanan',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="curve_chart" style="width: 600px; height: 400px"></div>
+  </body>
+</html>
+
+  </script>
+</head>
+<body>
+  <div id="line_top_x"></div>
+</body>
+</html>
+
+
 
           <div id="area-chartist-chart" class="chartist-chart" style="height: 320px"></div>
           </div>
