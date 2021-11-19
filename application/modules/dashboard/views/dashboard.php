@@ -87,7 +87,7 @@
 <canvas id="myChart" style="width:500px;height:423px"></canvas>
 
 <script>
-var xValues = ["Juni","Juli","Agstus","September","Oktober","November","Desember","Januari","Februari","Maret","April","Mei","Juni"];
+var xValues = ["Juli","Agstus","September","Oktober","November","Desember","Januari","Februari","Maret","April","Mei","Juni"];
 var yValues = [25.000,50.000,100.000,150.000,200.000,250.000,300.000];
 
 new Chart("myChart", {
@@ -95,7 +95,7 @@ new Chart("myChart", {
   data: {
     labels: xValues,
     datasets: [{ 
-      data: [50000,100000,25000,1060,1070,1110,1330,2210,7830,2478],
+      data: [50000,100000,50000,150000,300000,200000,100000,150000,150000,250000,200000,50000],
       borderColor: "orange",
       fill: false
     }]
