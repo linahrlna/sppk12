@@ -59,6 +59,7 @@
             <span class="info-box-text dash-text">Siswa Aktif</span>
             <a href="manage/student">
             <span class="info-box-number"><?php echo $student ?></span>
+            </a>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -83,28 +84,28 @@
           </div>
           <div class="box-body">
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-<body>
-<canvas id="myChart" style="width:500px;height:423px"></canvas>
+           <body>
+           <canvas id="myChart" style="width:500px;height:423px"></canvas>
 
-<script>
-var xValues = ["Juli","Agstus","September","Oktober","November","Desember","Januari","Februari","Maret","April","Mei","Juni"];
-var yValues = [25.000,50.000,100.000,150.000,200.000,250.000,300.000];
+          <script>
+            var xValues = ["Juli","Agustus","September","Oktober","November","Desember","Januari","Februari","Maret","April","Mei","Juni"];
+            var yValues = [25.000,50.000,100.000,150.000,200.000,250.000,300.000];
 
-new Chart("myChart", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{ 
-      data: [50000,100000,50000,150000,300000,200000,100000,150000,150000,250000,200000,50000],
-      borderColor: "orange",
-      fill: false
-    }]
-  },
-  options: {
-    legend: {display: false}
-  }
-});
-</script>
+          new Chart("myChart", {
+            type: "line",
+            data: {
+              labels: xValues,
+            datasets: [{ 
+              data: [50000,100000,50000,150000,300000,200000,100000,150000,150000,250000,200000,50000],
+              borderColor: "orange",
+              fill: false
+              }]
+            },
+          options: {
+             legend: {display: false}
+           }
+          });
+          </script>
 
           </div>
         </div>
