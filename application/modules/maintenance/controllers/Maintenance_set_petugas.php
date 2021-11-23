@@ -24,7 +24,7 @@ class Maintenance_set_petugas extends CI_Controller {
 
 	public function backup() {
 		$this->load->dbutil();
-		$data['setting_school'] = $this->Setting_model->get(array('id' => SCHOOL_NAME));
+		$data['setting_school'] = $this->Setting_model_petugas->get(array('id' => SCHOOL_NAME));
 		$prefs = [
 			'format' => 'zip',
 			'filename' => $data['setting_school']['setting_value'].'-'.date("Y-m-d H-i-s").'.sql'
