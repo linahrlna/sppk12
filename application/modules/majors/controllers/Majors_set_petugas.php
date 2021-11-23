@@ -119,17 +119,17 @@ class Majors_set extends CI_Controller {
     }
     if ($_POST) {
 
-      $siswa = $this->Student_model->get(array('majors_id'=>$id));
+      $siswa = $this->Student_model_petugas->get(array('majors_id'=>$id));
 
       if (count($siswa) > 0) {
         $this->session->set_flashdata('failed', 'Data Program Keahlian tidak dapat dihapus');
         redirect('petugas/majors');
       }
 
-      $this->Student_model->delete_majors($id);
+      $this->Student_model_petugas->delete_majors($id);
 // activity log
       $this->load->model('logs/Logs_model_petugas');
-      $this->Logs_model->add(
+      $this->Logs_model_petugas->add(
         array(
           'log_date' => date('Y-m-d H:i:s'),
           'user_id' => $this->session->userdata('uid'),
