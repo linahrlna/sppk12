@@ -36,7 +36,6 @@
             </div>
           </div>
         </div>
-
         <div class="row">
           <div class="">
             <div class="form-group label-floating">
@@ -53,7 +52,6 @@
             </div>
           </div>
         </div>
-
         <div class="row">
           <div class="">
             <div class="form-group label-floating">
@@ -89,7 +87,7 @@
             <?php if (isset($setting_logo) AND $setting_logo['setting_value'] != NULL) { ?>
             <img src="<?php echo upload_url('school/' . $setting_logo['setting_value']) ?>" style="height: 70px" >
             <?php } else { ?>
-            <img src="<?php echo media_url('logosmk12.png') ?>" id="target" alt="Choose image to upload">
+            <img src="<?php echo media_url("logosmk12.png") ?>" id="target" alt="Choose image to upload">
             <?php } ?>
           </a>
           <input type='file' id="setting_logo" name="setting_logo">
