@@ -32,7 +32,7 @@ public function index($offset = NULL) {
     if (isset($f['r']) && !empty($f['r']) && $f['r'] != '') {
       $params['student_nis'] = $f['r'];
       $param['student_nis'] = $f['r'];
-      $siswa = $this->Student_model->get(array('student_nis'=>$f['r']));
+      $siswa = $this->Student_model_petugas->get(array('student_nis'=>$f['r']));
 
     }
 
@@ -48,17 +48,17 @@ public function index($offset = NULL) {
 
     
     $paramsPage = $params;
-    $data['period'] = $this->Period_model->get($params);
-    $data['siswa'] = $this->Student_model->get(array('student_id'=>$siswa['student_id'], 'group'=>TRUE));
-    $data['student'] = $this->Bulan_model->get($pay);
-    $data['bebas'] = $this->Bebas_model->get($pay);
-  $data['free'] = $this->Bebas_pay_model->get($params);
-  $data['dom'] = $this->Bebas_pay_model->get($params);
-  $data['bill'] = $this->Bulan_model->get_total($params);
-  $data['bulan'] = $this->Bulan_model->get(array('student_id'=>$siswa['student_id']));
-  $data['in'] = $this->Bulan_model->get_total($param);
-  $data['setting_logo'] = $this->Setting_model->get(array('id' => 6));
-  $data['setting_school'] = $this->Setting_model->get(array('id' => 1));
+    $data['period'] = $this->Period_model_petugas->get($params);
+    $data['siswa'] = $this->Student_model_petugas->get(array('student_id'=>$siswa['student_id'], 'group'=>TRUE));
+    $data['student'] = $this->Bulan_model_petugas->get($pay);
+    $data['bebas'] = $this->Bebas_model_petugas->get($pay);
+  $data['free'] = $this->Bebas_pay_model_petugas->get($params);
+  $data['dom'] = $this->Bebas_pay_model_petugas->get($params);
+  $data['bill'] = $this->Bulan_model_petugas->get_total($params);
+  $data['bulan'] = $this->Bulan_model_petugas->get(array('student_id'=>$siswa['student_id']));
+  $data['in'] = $this->Bulan_model_petugas->get_total($param);
+  $data['setting_logo'] = $this->Setting_model_petugas->get(array('id' => 6));
+  $data['setting_school'] = $this->Setting_model_petugas->get(array('id' => 1));
 
   $data['total'] = 0;
   foreach ($data['bill'] as $key) {
@@ -77,7 +77,7 @@ public function index($offset = NULL) {
 
   $config['base_url'] = site_url('home/index');
   $config['suffix'] = '?' . http_build_query($_GET, '', "&");
-  $config['total_rows'] = count($this->Bulan_model->get($paramsPage));
+  $config['total_rows'] = count($this->Bulan_model_petugas->get($paramsPage));
 
   $data['title'] = 'Cek Tagihan Siswa';
   $data['main'] = 'frontend/layout';
