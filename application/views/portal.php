@@ -44,7 +44,7 @@
 				
 					
 				<div class="col-md-6 float-center" >
-					<a href="<?php echo site_url('manage') ?>">
+					<a href="<?php echo site_url('petugas/login') ?>">
 					<div class="box text-center">
 						<i class="fa fa-desktop icon-menu"></i>
 						<br>
