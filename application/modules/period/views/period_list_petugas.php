@@ -6,7 +6,7 @@
 			<small>List</small>
 		</h1>
 		<ol class="breadcrumb">
-			<li><a href="<?php echo site_url('manage') ?>"><i class="fa fa-th"></i> Home</a></li>
+			<li><a href="<?php echo site_url('petugas') ?>"><i class="fa fa-th"></i> Home</a></li>
 			<li class="active"><?php echo isset($title) ? '' . $title : null; ?></li>
 		</ol>
 	</section>
@@ -15,7 +15,7 @@
 			<div class="col-xs-12">
 				<div class="box">
 					<div class="box-header">
-						<a href="<?php echo site_url('manage/period/add') ?>" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah</a>
+						<a href="<?php echo site_url('petugas/period/add') ?>" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah</a>
 
 						<div class="box-tools">
 							<?php echo form_open(current_url(), array('class' => 'form-horizontal', 'method' => 'get')) ?>
@@ -48,12 +48,12 @@
 											<td><?php echo $row['period_start'].'/'.$row['period_end'] ?></td>
 											<td><?php echo ($row['period_status'] == 1) ? 'Aktif' : 'Tidak Aktif' ?></td>
 											<td>
-												<a href="<?php echo site_url('manage/period/edit/' . $row['period_id']) ?>" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
+												<a href="<?php echo site_url('petugas/period/edit/' . $row['period_id']) ?>" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
 												<button type="button" onclick="getId(<?php echo $row['period_id'] ?>)" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deletePeriod">
 													<i class="fa fa-trash"></i>
 												</button>
 												<?php if($row['period_status']!=1){ ?>
-													<a href="<?php echo site_url('manage/period/period_active/' . $row['period_id']) ?>" class="btn btn-xs btn-success" data-toggle="tooltip" title="Aktifkan"><i class="fa fa-check"></i></a>
+													<a href="<?php echo site_url('petugas/period/period_active/' . $row['period_id']) ?>" class="btn btn-xs btn-success" data-toggle="tooltip" title="Aktifkan"><i class="fa fa-check"></i></a>
 												<?php } ?>
 											</td>	
 										</tr>
@@ -90,7 +90,7 @@
 				</button>
 				<h4 class="modal-title">Konfirmasi Hapus</h4>
 			</div>
-			<form action="<?php echo site_url('manage/period/delete') ?>" method="POST">
+			<form action="<?php echo site_url('petugas/period/delete') ?>" method="POST">
 				<div class="modal-body">
 					<p>Apakah anda akan menghapus data ini?</p>
 					<input type="hidden" name="period_id" id="periodID">
