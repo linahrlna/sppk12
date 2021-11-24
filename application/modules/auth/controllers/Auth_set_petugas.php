@@ -32,7 +32,7 @@ class Auth_set_petugas extends CI_Controller {
             $email = $this->input->post('email', TRUE);
             $password = $this->input->post('password', TRUE);
 
-            $user = $this->Users_model->get(array('email' => $email, 'password' => sha1($password)));
+            $user = $this->Users_model_petugas->get(array('email' => $email, 'password' => sha1($password)));
 
             if (count($user) > 0) {
                 $this->session->set_userdata('logged', TRUE);
@@ -57,8 +57,8 @@ class Auth_set_petugas extends CI_Controller {
                 }
             }
         } else {
-            $data['setting_school'] = $this->Setting_model->get(array('id'=>1));
-            $data['setting_logo'] = $this->Setting_model->get(array('id'=>SCHOOL_LOGO));
+            $data['setting_school'] = $this->Setting_model_petugas->get(array('id'=>1));
+            $data['setting_logo'] = $this->Setting_model_petugas->get(array('id'=>SCHOOL_LOGO));
             $this->load->view('petugas/login',$data);
         }
     }
