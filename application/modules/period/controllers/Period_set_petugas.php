@@ -32,18 +32,18 @@ class Period_set extends CI_Controller {
     $paramsPage = $params;
     $params['limit'] = 5;
     $params['offset'] = $offset;
-    $data['period'] = $this->Period_model->get($params);
+    $data['period'] = $this->Period_model_petugas->get($params);
 
     $config['per_page'] = 5;
     $config['uri_segment'] = 4;
-    $config['base_url'] = site_url('manage/period/index');
+    $config['base_url'] = site_url('petugas/period/index');
     $config['suffix'] = '?' . http_build_query($_GET, '', "&");
-    $config['total_rows'] = count($this->Period_model->get($paramsPage));
+    $config['total_rows'] = count($this->Period_model_petugas->get($paramsPage));
     $this->pagination->initialize($config);
 
     $data['title'] = 'Tahun Ajaran';
-    $data['main'] = 'period/period_list';
-    $this->load->view('manage/layout', $data);
+    $data['main'] = 'period/period_list_petugas';
+    $this->load->view('petugas/layout', $data);
   }
 
 
@@ -71,15 +71,15 @@ class Period_set extends CI_Controller {
         'status_active' => TRUE
       );
 
-      $this->Period_model->add($non);
+      $this->Period_model_petugas->add($non);
 
-      $status = $this->Period_model->add($params);
+      $status = $this->Period_model_petugas->add($params);
       $paramsupdate['period_id'] = $status;
-      $this->Period_model->add($paramsupdate);
+      $this->Period_model_petugas->add($paramsupdate);
 
 
 // activity log
-      $this->Logs_model->add(
+      $this->Logs_model_petugas->add(
         array(
           'log_date' => date('Y-m-d H:i:s'),
           'user_id' => $this->session->userdata('user_id'),
@@ -90,19 +90,19 @@ class Period_set extends CI_Controller {
       );
 
       $this->session->set_flashdata('success', $data['operation'] . ' Tahun Ajaran berhasil');
-      redirect('manage/period');
+      redirect('petugas/period');
     } else {
       if ($this->input->post('period_id')) {
-        redirect('manage/period/edit/' . $this->input->post('period_id'));
+        redirect('petugas/period/edit/' . $this->input->post('period_id'));
       }
 
 // Edit mode
       if (!is_null($id)) {
-        $data['period'] = $this->Period_model->get(array('id' => $id));
+        $data['period'] = $this->Period_model_petugas->get(array('id' => $id));
       }
       $data['title'] = $data['operation'] . ' Tahun Ajaran';
-      $data['main'] = 'period/period_add';
-      $this->load->view('manage/layout', $data);
+      $data['main'] = 'period/period_add_petugas';
+      $this->load->view('petugas/layout', $data);
     }
   }
 
@@ -113,14 +113,14 @@ class Period_set extends CI_Controller {
       'status_active' => TRUE
     );
 
-    $this->Period_model->add($non);
+    $this->Period_model_petugas->add($non);
 
     $active = array(
       'period_id' => $id,
       'period_status' => 1
     );
 
-    $status = $this->Period_model->add($active);
+    $status = $this->Period_model_petugas->add($active);
 
 
 
@@ -128,7 +128,7 @@ class Period_set extends CI_Controller {
       echo $status;
     } else {
       $this->session->set_flashdata('success', 'Aktif Tahun Ajaran Berhasil');
-      redirect('manage/period');
+      redirect('petugas/period');
     }
   }
 
@@ -136,21 +136,21 @@ class Period_set extends CI_Controller {
 // Delete to database
   public function delete($id = NULL) {
     if ($this->session->userdata('uroleid')!= SUPERUSER){
-      redirect('manage');
+      redirect('petugas');
     }
     if ($_POST) {
 
-      $payment = $this->Payment_model->get(array('period_id'=>$this->input->post('period_id')));
+      $payment = $this->Payment_model_petugas->get(array('period_id'=>$this->input->post('period_id')));
 
       if (count($payment) > 0) {
         $this->session->set_flashdata('failed', 'Tahun Ajaran tidak dapat dihapus');
-        redirect('manage/period');
+        redirect('petugas/period');
       }
 
-      $this->Period_model->delete($this->input->post('period_id'));
+      $this->Period_model_petugas->delete($this->input->post('period_id'));
       // activity log
-      $this->load->model('logs/Logs_model');
-      $this->Logs_model->add(
+      $this->load->model('logs/Logs_model_petugas');
+      $this->Logs_model_petugas->add(
         array(
           'log_date' => date('Y-m-d H:i:s'),
           'user_id' => $this->session->userdata('uid'),
@@ -160,10 +160,10 @@ class Period_set extends CI_Controller {
         )
       );
       $this->session->set_flashdata('success', 'Hapus Tahun Ajaran berhasil');
-      redirect('manage/period');
+      redirect('petugas/period');
     } elseif (!$_POST) {
       $this->session->set_flashdata('delete', 'Delete');
-      redirect('manage/period/edit/' . $id);
+      redirect('petugas/period/edit/' . $id);
     }
   }
 
