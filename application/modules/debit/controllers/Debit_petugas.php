@@ -30,13 +30,13 @@ class Debit_petugas extends CI_Controller {
 		$paramsPage = $params;
 		$params['limit'] = 5;
 		$params['offset'] = $offset;
-		$data['debit'] = $this->Debit_model->get($params);
+		$data['debit'] = $this->Debit_model_petugas->get($params);
 
 		$config['per_page'] = 5;
 		$config['uri_segment'] = 4;
 		$config['base_url'] = site_url('petugas/debit/index');
 		$config['suffix'] = '?' . http_build_query($_GET, '', "&");
-		$config['total_rows'] = count($this->Debit_model->get($paramsPage));
+		$config['total_rows'] = count($this->Debit_model_petugas->get($paramsPage));
 		$this->pagination->initialize($config);
 
 		$data['title'] = 'Jurnal Umum Penerimaan';
@@ -58,7 +58,7 @@ class Debit_petugas extends CI_Controller {
 				$params['debit_last_update'] = date('Y-m-d H:i:s');
 				$params['user_user_id'] = $this->session->userdata('uid');
 
-				$this->Debit_model->add($params);
+				$this->Debit_model_petugas->add($params);
 			}
 		}
 		$this->session->set_flashdata('success',' Tambah Penerimaan Berhasil');
@@ -90,13 +90,13 @@ class Debit_petugas extends CI_Controller {
 			$params['debit_last_update'] = date('Y-m-d H:i:s');
 			$params['user_user_id'] = $this->session->userdata('uid');
 
-			$status = $this->Debit_model->add($params);
+			$status = $this->Debit_model_petugas->add($params);
 			$paramsupdate['debit_id'] = $status;
-			$this->Debit_model->add($paramsupdate);
+			$this->Debit_model_petugas->add($paramsupdate);
 
 
             // activity log
-			$this->Logs_model->add(
+			$this->Logs_model_petugas->add(
 				array(
 					'log_date' => date('Y-m-d H:i:s'),
 					'user_id' => $this->session->userdata('user_id'),
@@ -115,7 +115,7 @@ class Debit_petugas extends CI_Controller {
 
             // Edit mode
 			if (!is_null($id)) {
-				$data['debit'] = $this->Debit_model->get(array('id' => $id));
+				$data['debit'] = $this->Debit_model_petugas->get(array('id' => $id));
 			}
 			$data['title'] = $data['operation'] . ' Jurnal Penerimaan';
 			$data['main'] = 'debit/debit_add_petugas';
@@ -127,10 +127,10 @@ class Debit_petugas extends CI_Controller {
     // Delete to database
 	public function delete($id = NULL) {
 		if ($_POST) {
-			$this->Debit_model->delete($id);
+			$this->Debit_model_petugas->delete($id);
             // activity log
 			$this->load->model('logs/Logs_model_petugas');
-			$this->Logs_model->add(
+			$this->Logs_model_petugas->add(
 				array(
 					'log_date' => date('Y-m-d H:i:s'),
 					'user_id' => $this->session->userdata('uid'),
@@ -149,5 +149,5 @@ class Debit_petugas extends CI_Controller {
 
 }
 
-/* End of file Jurnal_set.php */
-/* Location: ./application/modules/jurnal/controllers/Jurnal_set.php */
+/* End of file Debit_petugas.php */
+/* Location: ./application/modules/debit/controllers/Debit_petugas.php */
