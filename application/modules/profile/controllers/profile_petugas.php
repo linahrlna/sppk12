@@ -16,10 +16,10 @@ class Profile_petugas extends CI_Controller {
     
     public function index($offset = NULL) {
         $id = $this->session->userdata('uid');
-        if ($this->Users_model->get(array('id' => $id)) == NULL) {
+        if ($this->Users_model_petugas->get(array('id' => $id)) == NULL) {
             redirect('petugas/users');
         }
-        $data['user'] = $this->Users_model->get(array('id' => $id));
+        $data['user'] = $this->Users_model_petugas->get(array('id' => $id));
         $data['title'] = 'Detail Profil';
         $data['main'] = 'profile/profile_view_petugas';
         $this->load->view('petugas/layout', $data);
@@ -37,17 +37,17 @@ class Profile_petugas extends CI_Controller {
             $params['user_last_update'] = date('Y-m-d H:i:s');
             $params['user_full_name'] = $this->input->post('user_full_name');
             $params['user_description'] = $this->input->post('user_description');
-            $status = $this->Users_model->add($params);
+            $status = $this->Users_model_petugas->add($params);
             if (!empty($_FILES['user_image']['name'])) {
                 $paramsupdate['user_image'] = $this->do_upload($name = 'user_image', $fileName= $params['user_full_name']);
             }
 
             $paramsupdate['user_id'] = $status;
-            $this->Users_model->add($paramsupdate);
+            $this->Users_model_petugas->add($paramsupdate);
 
             // activity log
             $this->load->model('logs/Logs_model');
-            $this->Logs_model->add(
+            $this->Logs_model_petugas->add(
                     array(
                         'log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('uid'),
@@ -65,8 +65,8 @@ class Profile_petugas extends CI_Controller {
             }
 
             // Edit mode
-            $data['user'] = $this->Users_model->get(array('id' => $this->session->userdata('uid')));
-            $data['roles'] = $this->Users_model->get_role();
+            $data['user'] = $this->Users_model_petugas->get(array('id' => $this->session->userdata('uid')));
+            $data['roles'] = $this->Users_model_petugas->get_role();
             $data['title'] = $data['operation'] . ' Pengguna';
             $data['main'] = 'profile/profile_edit_petugas';
             $this->load->view('petugas/layout', $data);
@@ -111,10 +111,10 @@ class Profile_petugas extends CI_Controller {
             $old_password = $this->input->post('user_current_password');
 
             $params['user_password'] = sha1($this->input->post('user_password'));
-            $status = $this->Users_model->change_password($this->session->userdata('uid'), $params);
+            $status = $this->Users_model_petugas->change_password($this->session->userdata('uid'), $params);
 
             // activity log
-            $this->Logs_model->add(
+            $this->Logs_model_petugas->add(
                     array(
                         'log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('uid'),
@@ -126,7 +126,7 @@ class Profile_petugas extends CI_Controller {
             $this->session->set_flashdata('success', 'Ubah password Pengguna berhasil');
             redirect('petugas/profile');
         } else {
-            if ($this->Users_model->get(array('id' => $this->session->userdata('uid'))) == NULL) {
+            if ($this->Users_model_petugas->get(array('id' => $this->session->userdata('uid'))) == NULL) {
                 redirect('petugas');
             }
             $data['title'] = 'Ganti Password Pengguna';
@@ -138,7 +138,7 @@ class Profile_petugas extends CI_Controller {
     function check_current_password() {
 
         $pass = $this->input->post('user_current_password');
-        $user = $this->Users_model->get(array('id' => $this->session->userdata('uid')));
+        $user = $this->Users_model_petugas->get(array('id' => $this->session->userdata('uid')));
         if (sha1($pass) == $user['user_password']) {
             return TRUE;
         } else {
