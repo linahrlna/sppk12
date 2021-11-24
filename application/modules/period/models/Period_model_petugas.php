@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-class Period_model extends CI_Model {
+class Period_model_petugas extends CI_Model {
 
     function __construct() {
         parent::__construct();
