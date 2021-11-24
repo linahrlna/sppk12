@@ -34,19 +34,19 @@ class Report_petugas extends CI_Controller {
 
 
 		$paramsPage = $params;
-		$data['period'] = $this->Period_model->get($params);
-		$data['student'] = $this->Bulan_model->get(array('group'=>true));
-		$data['bulan'] = $this->Bulan_model->get($params);
-		$data['month'] = $this->Bulan_model->get(array('grup'=>true));
-		$data['py'] = $this->Bulan_model->get(array('paymentt'=>true));
-		$data['bebas'] = $this->Bebas_model->get(array('grup'=>true));
-		$data['free'] = $this->Bebas_model->get($params);
-		$data['dom'] = $this->Bebas_pay_model->get($params);
+		$data['period'] = $this->Period_model_petugas->get($params);
+		$data['student'] = $this->Bulan_model_petugas->get(array('group'=>true));
+		$data['bulan'] = $this->Bulan_model_petugas->get($params);
+		$data['month'] = $this->Bulan_model_petugas->get(array('grup'=>true));
+		$data['py'] = $this->Bulan_model_petugas->get(array('paymentt'=>true));
+		$data['bebas'] = $this->Bebas_model_petugas->get(array('grup'=>true));
+		$data['free'] = $this->Bebas_model_petugas->get($params);
+		$data['dom'] = $this->Bebas_pay_model_petugas->get($params);
 
 
 		$config['base_url'] = site_url('petugas/report/index');
 		$config['suffix'] = '?' . http_build_query($_GET, '', "&");
-		$config['total_rows'] = count($this->Bulan_model->get($paramsPage));
+		$config['total_rows'] = count($this->Bulan_model_petugas->get($paramsPage));
 
 		$data['title'] = 'Laporan Keuangan';
 		$data['main'] = 'report/report_list_petugas';
@@ -90,15 +90,15 @@ class Report_petugas extends CI_Controller {
 		$stu['group'] = TRUE;
 
 
-		$data['period'] = $this->Period_model->get($params);
-		$data['class'] = $this->Student_model->get_class($params);
-		$data['majors'] = $this->Student_model->get_majors($params);
-		$data['student'] = $this->Bulan_model->get($stu);
-		$data['bulan'] = $this->Bulan_model->get($free);
-		$data['month'] = $this->Bulan_model->get($params);
-		$data['py'] = $this->Bulan_model->get($param);
-		$data['bebas'] = $this->Bebas_model->get($params);
-		$data['free'] = $this->Bebas_model->get($free);
+		$data['period'] = $this->Period_model_petugas->get($params);
+		$data['class'] = $this->Student_model_petugas->get_class($params);
+		$data['majors'] = $this->Student_model_petugas->get_majors($params);
+		$data['student'] = $this->Bulan_model_petugas->get($stu);
+		$data['bulan'] = $this->Bulan_model_petugas->get($free);
+		$data['month'] = $this->Bulan_model_petugas->get($params);
+		$data['py'] = $this->Bulan_model_petugas->get($param);
+		$data['bebas'] = $this->Bebas_model_petugas->get($params);
+		$data['free'] = $this->Bebas_model_petugas->get($free);
 
 		$config['suffix'] = '?' . http_build_query($_GET, '', "&");
 
@@ -130,12 +130,12 @@ class Report_petugas extends CI_Controller {
 		$params['status'] = 1;
 
 
-		$data['bulan'] = $this->Bulan_model->get($params);
-		$data['bebas'] = $this->Bebas_model->get($params);
-		$data['free'] = $this->Bebas_pay_model->get($params);
-		$data['kredit'] = $this->Kredit_model->get($params);
-		$data['debit'] = $this->Debit_model->get($params);
-		$data['setting_school'] = $this->Setting_model->get(array('id' => SCHOOL_NAME));
+		$data['bulan'] = $this->Bulan_model_petugas->get($params);
+		$data['bebas'] = $this->Bebas_model_petugas->get($params);
+		$data['free'] = $this->Bebas_pay_model_petugas->get($params);
+		$data['kredit'] = $this->Kredit_model_petugas->get($params);
+		$data['debit'] = $this->Debit_model_petugas->get($params);
+		$data['setting_school'] = $this->Setting_model_petugas->get(array('id' => SCHOOL_NAME));
 
 		$this->load->library("PHPExcel");
 		$objXLS   = new PHPExcel();
@@ -282,17 +282,17 @@ class Report_petugas extends CI_Controller {
 		$params['grup'] = TRUE;
 		$stu['group'] = TRUE;
 
-		$data['period'] = $this->Period_model->get($params);
-		$data['class'] = $this->Student_model->get_class($stu);
-		$data['majors'] = $this->Student_model->get_majors($stu);
-		$data['student'] = $this->Bulan_model->get($stu);
-		$data['bulan'] = $this->Bulan_model->get($free);
-		$data['month'] = $this->Bulan_model->get($params);
-		$data['py'] = $this->Bulan_model->get($param);
-		$data['bebas'] = $this->Bebas_model->get($params);
-		$data['free'] = $this->Bebas_model->get($free);
+		$data['period'] = $this->Period_model_petugas->get($params);
+		$data['class'] = $this->Student_model_petugas->get_class($stu);
+		$data['majors'] = $this->Student_model_petugas->get_majors($stu);
+		$data['student'] = $this->Bulan_model_petugas->get($stu);
+		$data['bulan'] = $this->Bulan_model_petugas->get($free);
+		$data['month'] = $this->Bulan_model_petugas->get($params);
+		$data['py'] = $this->Bulan_model_petugas->get($param);
+		$data['bebas'] = $this->Bebas_model_petugas->get($params);
+		$data['free'] = $this->Bebas_model_petugas->get($free);
 
-		$data['setting_school'] = $this->Setting_model->get(array('id' => SCHOOL_NAME));
+		$data['setting_school'] = $this->Setting_model_petugas->get(array('id' => SCHOOL_NAME));
 
 		$this->load->library("PHPExcel/Laporan_bulanan.pdf");
 		$objXLS   = new PHPExcel();
