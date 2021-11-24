@@ -1,105 +1,102 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 
+if (isset($period)) {
 
-class Period_model extends CI_Model {
-
-    function __construct() {
-        parent::__construct();
-    }
-
+    $inputStartValue = $period['period_start'];
+    $inputEndValue = $period['period_end'];
+    $inputStatusValue = $period['period_status'];
     
-    // Get period from database
-    function get($params = array())
-    {
-        if(isset($params['id']))
-        {
-            $this->db->where('period_id', $params['id']);
-        }
-
-        if(isset($params['status']))
-        {
-            $this->db->where('period_status', $params['status']);
-        }
-
-        if(isset($params['period_start']))
-        {
-            $this->db->where('period_start', $params['period_start']);
-        }
-        if(isset($params['period_end']))
-        {
-            $this->db->where('period_end', $params['period_end']);
-        }
-
-        if(isset($params['limit']))
-        {
-            if(!isset($params['offset']))
-            {
-                $params['offset'] = NULL;
-            }
-
-            $this->db->limit($params['limit'], $params['offset']);
-        }
-        if(isset($params['order_by']))
-        {
-            $this->db->order_by($params['order_by'], 'desc');
-        }
-        else
-        {
-            $this->db->order_by('period_id', 'desc');
-        }
-
-        $this->db->select('period_id, period_start, period_end, period_status');
-        $res = $this->db->get('period');
-
-        if(isset($params['id']))
-        {
-            return $res->row_array();
-        }
-        else
-        {
-            return $res->result_array();
-        }
-    }
+} else {
+    $inputStartValue = set_value('period_start');
+    $inputEndValue = set_value('period_end');
+    $inputStatusValue = set_value('period_status');
     
-    // Add and update to database
-    function add($data = array()) {
-
-       if(isset($data['period_id'])) {
-        $this->db->set('period_id', $data['period_id']);
-    }
-
-    if(isset($data['period_start'])) {
-        $this->db->set('period_start', $data['period_start']);
-    }
-
-    if(isset($data['period_end'])) {
-        $this->db->set('period_end', $data['period_end']);
-    }
-
-    if(isset($data['period_status'])) {
-        $this->db->set('period_status', $data['period_status']);
-    }
-
-    if (isset($data['period_id'])) {
-        $this->db->where('period_id', $data['period_id']);
-        $this->db->update('period');
-        $id = $data['period_id'];
-    } else if (isset($data['status_active'])) {
-        $this->db->update('period');
-        $id = NULL;
-    } else {
-        $this->db->insert('period');
-        $id = $this->db->insert_id();
-    }
-
-    $status = $this->db->affected_rows();
-    return ($status == 0) ? FALSE : $id;
 }
+?>
 
-    // Delete period to database
-function delete($id) {
-    $this->db->where('period_id', $id);
-    $this->db->delete('period');
-}
+<div class="content-wrapper"> 
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            <?php echo isset($title) ? '' . $title : null; ?>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="<?php echo site_url('petugas') ?>"><i class="fa fa-th"></i> Home</a></li>
+            <li><a href="<?php echo site_url('petugas/period') ?>">Tahun Ajaran</a></li>
+            <li class="active"><?php echo isset($title) ? '' . $title : null; ?></li>
+        </ol>
+    </section>
 
-}
+    <!-- Main content -->
+    <!-- Main content -->
+    <section class="content">
+        <?php echo form_open_multipart(current_url()); ?>
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-md-9">
+                <div class="box box-primary">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <?php echo validation_errors(); ?>
+                        <?php if (isset($period)) { ?>
+                            <input type="hidden" name="period_id" value="<?php echo $period['period_id']; ?>">
+                        <?php } ?>
+
+                        <div class="form-group">
+                            <label>Tahun Ajaran *</label>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <input type="text" name="period_start" readonly="" class="form-control years" onchange="getYear(this.value)" placeholder="Tahun Awal">
+                                </div>
+                                <div class="col-sm-6 col-md-6">
+                                    <input type="text" class="form-control" readonly="" name="period_end" id="YearEnd" value="<?php echo $inputEndValue ?>" placeholder="Tahun Akhir">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Keterangan</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="period_status" value="1" <?php echo ($inputStatusValue == 1) ? 'checked' : ''; ?>> Aktif
+                                </label> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <label>
+                                    <input type="radio" name="period_status" value="0" <?php echo ($inputStatusValue == 0) ? 'checked' : ''; ?>> Tidak Aktif
+                                </label>
+                            </div>
+                        </div>
+
+                        <p class="text-muted">*) Kolom wajib diisi.</p>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box box-primary">
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <button type="submit" class="btn btn-block btn-success">Simpan</button>
+                        <a href="<?php echo site_url('petugas/period'); ?>" class="btn btn-block btn-info">Batal</a>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+            </div>
+        </div>
+        <?php echo form_close(); ?>
+        <!-- /.row -->
+    </section>
+</div>
+
+<script>
+    function getYear(value) {
+
+        var yearsend = parseInt(value) + 1;
+
+        $("#YearEnd").val(yearsend);
+
+    }
+
+</script>
+<!-- <script>
+      $(".input-group.date").datepicker({autoclose: true, todayHighlight: true});
+    </script> -->
