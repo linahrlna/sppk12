@@ -30,13 +30,13 @@ class Kredit_petugas extends CI_Controller {
 		$paramsPage = $params;
 		$params['limit'] = 5;
 		$params['offset'] = $offset;
-		$data['kredit'] = $this->Kredit_model->get($params);
+		$data['kredit'] = $this->Kredit_model_petugas->get($params);
 
 		$config['per_page'] = 5;
 		$config['uri_segment'] = 4;
 		$config['base_url'] = site_url('petugas/kredit/index');
 		$config['suffix'] = '?' . http_build_query($_GET, '', "&");
-		$config['total_rows'] = count($this->Kredit_model->get($paramsPage));
+		$config['total_rows'] = count($this->Kredit_model_petugas->get($paramsPage));
 		$this->pagination->initialize($config);
 
 		$data['title'] = 'Jurnal Umum Pengeluaran';
@@ -57,7 +57,7 @@ class Kredit_petugas extends CI_Controller {
 				$params['kredit_last_update'] = date('Y-m-d H:i:s');
 				$params['user_user_id'] = $this->session->userdata('uid');
 
-				$this->Kredit_model->add($params);
+				$this->Kredit_model_petugas->add($params);
 			}
 		}
 		$this->session->set_flashdata('success',' Tambah Pengeluaran Berhasil');
@@ -88,9 +88,9 @@ class Kredit_petugas extends CI_Controller {
 			$params['kredit_last_update'] = date('Y-m-d H:i:s');
 			$params['user_user_id'] = $this->session->userdata('uid');
 
-			$status = $this->Kredit_model->add($params);
+			$status = $this->Kredit_model_petugas->add($params);
 			$paramsupdate['kredit_id'] = $status;
-			$this->Kredit_model->add($paramsupdate);
+			$this->Kredit_model_petugas->add($paramsupdate);
 
 			$this->session->set_flashdata('success', $data['operation'] . ' Pengeluaran berhasil');
 			redirect('petugas/kredit');
@@ -101,7 +101,7 @@ class Kredit_petugas extends CI_Controller {
 
             // Edit mode
 			if (!is_null($id)) {
-				$data['kredit'] = $this->Kredit_model->get(array('id' => $id));
+				$data['kredit'] = $this->Kredit_model_petugas->get(array('id' => $id));
 			}
 			$data['title'] = $data['operation'] . ' Jurnal Pengeluaran';
 			$data['main'] = 'kredit/kredit_add_petugas';
@@ -113,10 +113,10 @@ class Kredit_petugas extends CI_Controller {
     // Delete to database
 	public function delete($id = NULL) {
 		if ($_POST) {
-			$this->Kredit_model->delete($id);
+			$this->Kredit_model_petugas->delete($id);
             // activity log
 			$this->load->model('logs/Logs_model_petugas');
-			$this->Logs_model->add(
+			$this->Logs_model_petugas->add(
 				array(
 					'log_date' => date('Y-m-d H:i:s'),
 					'user_id' => $this->session->userdata('uid'),
@@ -135,5 +135,5 @@ class Kredit_petugas extends CI_Controller {
 
 }
 
-/* End of file Jurnal_set.php */
-/* Location: ./application/modules/jurnal/controllers/Jurnal_set.php */
+/* End of file Kredit_petugas.php */
+/* Location: ./application/modules/kredit/controllers/Kredit_petugas.php */
