@@ -27,13 +27,13 @@ class Logs_petugas extends CI_Controller {
         $paramsPage = $params;
         $params['limit'] = 5;
         $params['offset'] = $offset;
-        $data['logs'] = $this->Logs_model->get($params);
+        $data['logs'] = $this->Logs_model_petugas->get($params);
         
         $config['per_page'] = 5;
         $config['uri_segment'] = 4;
         $config['base_url'] = site_url('petugas/logs/index');
         $config['suffix'] = '?' . http_build_query($_GET, '', "&");
-        $config['total_rows'] = count($this->Logs_model->get($paramsPage));
+        $config['total_rows'] = count($this->Logs_model_petugas->get($paramsPage));
         $this->pagination->initialize($config);
 
         $data['title'] = 'Log Aktifitas';

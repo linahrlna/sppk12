@@ -32,13 +32,13 @@ class Pos_petugas extends CI_Controller {
         $paramsPage = $params;
         $params['limit'] = 10;
         $params['offset'] = $offset;
-        $data['pos'] = $this->Pos_model->get($params);
+        $data['pos'] = $this->Pos_model_petugas->get($params);
 
         $config['per_page'] = 10;
         $config['uri_segment'] = 4;
         $config['base_url'] = site_url('petugas/pos/index');
         $config['suffix'] = '?' . http_build_query($_GET, '', "&");
-        $config['total_rows'] = count($this->Pos_model->get($paramsPage));
+        $config['total_rows'] = count($this->Pos_model_petugas->get($paramsPage));
         $this->pagination->initialize($config);
 
         $data['title'] = 'Pos Bayar';
@@ -55,7 +55,7 @@ class Pos_petugas extends CI_Controller {
         $params['pos_name'] = $posName[$i];
         $params['pos_description'] = $posKet[$i];
 
-        $this->Pos_model->add($params);
+        $this->Pos_model_petugas->add($params);
       }
     }
     $this->session->set_flashdata('success',' Tambah POS Berhasil');
@@ -80,13 +80,13 @@ class Pos_petugas extends CI_Controller {
             $params['pos_name'] = $this->input->post('pos_name');
             $params['pos_description'] = $this->input->post('pos_description');
 
-            $status = $this->Pos_model->add($params);
+            $status = $this->Pos_model_petugas->add($params);
             $paramsupdate['pos_id'] = $status;
-            $this->Pos_model->add($paramsupdate);
+            $this->Pos_model_petugas->add($paramsupdate);
 
 
             // activity log
-            $this->Logs_model->add(
+            $this->Logs_model_petugas->add(
                     array(
                         'log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('user_id'),
@@ -105,7 +105,7 @@ class Pos_petugas extends CI_Controller {
 
             // Edit mode
             if (!is_null($id)) {
-                $data['pos'] = $this->Pos_model->get(array('id' => $id));
+                $data['pos'] = $this->Pos_model_petugas->get(array('id' => $id));
             }
             $data['title'] = $data['operation'] . ' Pos Bayar';
             $data['main'] = 'pos/pos_add_petugas';
@@ -121,17 +121,17 @@ class Pos_petugas extends CI_Controller {
         }
         if ($_POST) {
 
-            $payment = $this->Payment_model->get(array('pos_id'=>$id));
+            $payment = $this->Payment_model_petugas->get(array('pos_id'=>$id));
 
             if (count($payment) > 0) {
                 $this->session->set_flashdata('failed', 'Data POS tidak dapat dihapus');
                 redirect('petugas/pos');
             }
 
-            $this->Pos_model->delete($id);
+            $this->Pos_model_petugas->delete($id);
             // activity log
             $this->load->model('logs/Logs_model_petugas');
-            $this->Logs_model->add(
+            $this->Logs_model_petugas->add(
                     array(
                         'log_date' => date('Y-m-d H:i:s'),
                         'user_id' => $this->session->userdata('uid'),

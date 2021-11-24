@@ -17,12 +17,12 @@ class Dashboard_petugas extends CI_Controller {
 
     public function index() {
         $id = $this->session->userdata('uid'); 
-        $data['user'] = count($this->Users_model->get());
-        $data['student'] = count($this->Student_model->get(array('status'=>1)));
-        $data['kredit'] = $this->Kredit_model->get(array('date'=> date('Y-m-d')));
-        $data['information'] = $this->Information_model->get(array('information_publish'=>1));
-        $data['debit'] = $this->Debit_model->get(array('date'=> date('Y-m-d')));
-        $data['bulan_day'] = $this->Bulan_model->get_total(array('status'=>1, 'date'=> date('Y-m-d')));
+        $data['user'] = count($this->Users_model_petugas->get());
+        $data['student'] = count($this->Student_model_petugas->get(array('status'=>1)));
+        $data['kredit'] = $this->Kredit_model_petugas->get(array('date'=> date('Y-m-d')));
+        $data['information'] = $this->Information_model_petugas->get(array('information_publish'=>1));
+        $data['debit'] = $this->Debit_model_petugas->get(array('date'=> date('Y-m-d')));
+        $data['bulan_day'] = $this->Bulan_model_petugas->get_total(array('status'=>1, 'date'=> date('Y-m-d')));
         $data['bebas_day'] = $this->Bebas_pay_model->get(array('date'=> date('Y-m-d')));
 
         $data['total_kredit'] = 0;
@@ -58,7 +58,7 @@ class Dashboard_petugas extends CI_Controller {
                 $params['date'] = $this->input->post('date');
                 $params['info'] = $this->input->post('info');
 
-                $ret = $this->Holiday_model->add($params);
+                $ret = $this->Holiday_model_petugas->add($params);
 
                 $this->session->set_flashdata('success', 'Tambah Agenda berhasil');
                 redirect('petugas');
@@ -69,21 +69,21 @@ class Dashboard_petugas extends CI_Controller {
 
             if ($_POST AND $this->form_validation->run() == TRUE) {
                 $id = $this->input->post('id', TRUE);
-                $this->Holiday_model->delete($id);
+                $this->Holiday_model_petugas->delete($id);
 
                 $this->session->set_flashdata('success', 'Hapus Agenda berhasil');
                 redirect('petugas');
             }
         }
-        $data['setting_logo'] = $this->Setting_model->get(array('id' => 6));
-        $data['holiday'] = $this->Holiday_model->get();
+        $data['setting_logo'] = $this->Setting_model_petugas->get(array('id' => 6));
+        $data['holiday'] = $this->Holiday_model_petugas->get();
         $data['title'] = 'Dashboard';
         $data['main'] = 'dashboard/dashboard_petugas';
         $this->load->view('petugas/layout', $data);
     }
 
     public function get() {
-        $events = $this->Holiday_model->get();
+        $events = $this->Holiday_model_petugas->get();
         foreach ($events as $i => $row) {
             $data[$i] = array(
                 'id' => $row['id'],

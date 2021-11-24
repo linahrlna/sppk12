@@ -128,5 +128,5 @@ class Kredit_model_petugas extends CI_Model {
 
 }
 
-/* End of file kredit_model.php */
-/* Location: ./application/modules/jurnal/models/kredit_model.php */
+/* End of file kredit_model_petugas.php */
+/* Location: ./application/modules/jurnal/models/kredit_model_petugas.php */

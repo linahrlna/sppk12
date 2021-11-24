@@ -135,5 +135,5 @@ class Kredit_set extends CI_Controller {
 
 }
 
-/* End of file Jurnal_set.php */
-/* Location: ./application/modules/jurnal/controllers/Jurnal_set.php */
+/* End of file Kredit_set.php */
+/* Location: ./application/modules/kredit/controllers/Kredit_set.php */

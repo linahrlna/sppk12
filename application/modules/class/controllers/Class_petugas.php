@@ -37,13 +37,13 @@ class Class_petugas extends CI_Controller {
     $paramsPage = $params;
     $params['limit'] = 10;
     $params['offset'] = $offset;
-    $data['classes'] = $this->Student_model->get_class($params);
-    $data['setting_logo'] = $this->Setting_model->get(array('id' => 6));
+    $data['classes'] = $this->Student_model_petugas->get_class($params);
+    $data['setting_logo'] = $this->Setting_model_petugas->get(array('id' => 6));
     $config['per_page'] = 10;
     $config['uri_segment'] = 4;
     $config['base_url'] = site_url('petugas/class/index');
     $config['suffix'] = '?' . http_build_query($_GET, '', "&");
-    $config['total_rows'] = count($this->Student_model->get_class($paramsPage));
+    $config['total_rows'] = count($this->Student_model_petugas->get_class($paramsPage));
     $this->pagination->initialize($config);
 
     $data['title'] = 'Kelas';
@@ -58,7 +58,7 @@ class Class_petugas extends CI_Controller {
       for ($i = 0; $i < $cpt; $i++) {
         $params['class_name'] = $className[$i];
 
-        $this->Student_model->add_class($params);
+        $this->Student_model_petugas->add_class($params);
       }
     }
     $this->session->set_flashdata('success',' Tambah Kelas Berhasil');
@@ -78,7 +78,7 @@ class Class_petugas extends CI_Controller {
         $params['class_id'] = $this->input->post('class_id');
       }
       $params['class_name'] = $this->input->post('class_name');
-      $status = $this->Student_model->add_class($params);
+      $status = $this->Student_model_petugas->add_class($params);
 
 
       $this->session->set_flashdata('success', $data['operation'] . ' Keterangan Kelas');
@@ -94,7 +94,7 @@ class Class_petugas extends CI_Controller {
 
 // Edit mode
       if (!is_null($id)) {
-        $object = $this->Student_model->get_class(array('id' => $id));
+        $object = $this->Student_model_petugas->get_class(array('id' => $id));
         if ($object == NULL) {
           redirect('petugas/class');
         } else {
@@ -113,7 +113,7 @@ class Class_petugas extends CI_Controller {
     if ($this->session->userdata('uroleid')!= SUPERUSER){
       redirect('petugas');
     }
-    $siswa = $this->Student_model->get(array('class_id'=>$id));
+    $siswa = $this->Student_model_petugas->get(array('class_id'=>$id));
 
     if ($_POST) {
 
@@ -122,10 +122,10 @@ class Class_petugas extends CI_Controller {
         redirect('petugas/class');
       }
 
-      $this->Student_model->delete_class($id);
+      $this->Student_model_petugas->delete_class($id);
 // activity log
       $this->load->model('logs/Logs_model_petugas');
-      $this->Logs_model->add(
+      $this->Logs_model_petugas->add(
         array(
           'log_date' => date('Y-m-d H:i:s'),
           'user_id' => $this->session->userdata('uid'),

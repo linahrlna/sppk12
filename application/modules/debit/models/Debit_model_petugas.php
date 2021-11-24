@@ -128,5 +128,5 @@ class Debit_model_petugas extends CI_Model {
 
 }
 
-/* End of file debit_model.php */
-/* Location: ./application/modules/jurnal/models/debit_model.php */
+/* End of file debit_model_petugas.php */
+/* Location: ./application/modules/debit/models/debit_model_petugas.php */

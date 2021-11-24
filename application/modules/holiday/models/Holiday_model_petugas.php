@@ -111,5 +111,5 @@ class Holiday_model_petugas extends CI_Model {
     }
 }
 
-/* End of file Holiday_model.php */
-/* Location: ./application/modules/holiday/models/Holiday_model.php */
+/* End of file Holiday_model_petugas.php */
+/* Location: ./application/modules/holiday/models/Holiday_model_petugas.php */
