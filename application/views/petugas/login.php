@@ -33,10 +33,10 @@
     </div>
     <div class="col-md-7">
       <div class="box">
-        <?php echo form_open('petugas/auth/login', array('class'=>'login100-form validate-form')); ?>
+        <?php echo form_open('petugas/auth/Auth_set_petugas/login', array('class'=>'login100-form validate-form')); ?>
 
         <div class="col-md-12">
-          <p class="title-login">Login Admin</p>
+          <p class="title-login">Login Petugas</p>
           <?php if ($this->session->flashdata('failed')) { ?>
           <br><br>
         <div class="alert alert-danger alert-dismissible" style="margin-top: -85px !important;">
