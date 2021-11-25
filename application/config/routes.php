@@ -63,6 +63,19 @@ $route['manage/(:any)/(:any)/(:num)'] = "$1/$1_set/$2/$3";
 $route['manage/(:any)/(:any)/(:any)'] = "$1/$1_set/$3_$2";
 $route['manage'] = "dashboard/Dashboard_set";
 
+$route['petugas/auth'] = 'petugas/auth_petugas/login';
+$route['petugas/([a-zA-Z_-]+)'] = '$1/$1_petugas';
+$route['petugas/auth/(:any)'] = 'petugas/auth_petugas/$1';
+$route['petugas/([a-zA-Z_-]+)/(:any)'] = '$1/$1_petugas/$2';
+$route['petugas/(:any)/edit/(:num)'] = "$1/$1_petugas/add/$2";
+$route['petugas/(:any)/(:any)/edit/(:num)'] = "$1/$1_petugas/add_$2/$3";
+$route['petugas/(:any)/(:any)/(:num)/(:num)'] = "$1/$1_petugas/$2/$3/$4";
+$route['petugas/(:any)/(:any)/(:num)/(:num)/(:num)'] = "$1/$1_petugas/$2/$3/$4/$5";
+$route['petugas/(:any)/(:any)/(:num)/(:num)/(:num)/(:num)'] = "$1/$1_petugas/$2/$3/$4/$5/$6";
+$route['petugas/(:any)/(:any)/(:num)'] = "$1/$1_petugas/$2/$3";
+$route['petugas/(:any)/(:any)/(:any)'] = "$1/$1_petugas/$3_$2";
+$route['petugas'] = "dashboard/Dashboard_petugas";
+
 $route['student/auth'] = 'student/auth_student/login';
 $route['student/([a-zA-Z_-]+)'] = '$1/$1_student';
 $route['student/auth/(:any)'] = 'student/auth_student/$1';
