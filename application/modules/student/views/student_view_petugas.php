@@ -105,7 +105,7 @@
 									<a href="<?php echo site_url('petugas/student') ?>" class="btn btn-default">
 										<i class="fa fa-arrow-circle-o-left"></i> Kembali
 									</a>
-									<?php if ($this->session->userdata('uroleid') == SUPERUSER) { ?>
+									<?php if ($this->session->userdata('uroleid') == EXTRAUSER) { ?>
 									<a href="<?php echo site_url('petugas/student/edit/' . $student['student_id']) ?>" class="btn btn-success">
 										<i class="fa fa-edit"></i> Edit
 									</a>
