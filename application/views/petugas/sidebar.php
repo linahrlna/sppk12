@@ -45,7 +45,7 @@
         </li>
         <?php } ?>
 
-        <?php if ($this->session->userdata('uroleid') == SUPERUSER) { ?>
+        <?php if ($this->session->userdata('uroleid') == EXTRAUSER) { ?>
         <li class="<?php echo ($this->uri->segment(2) == 'pos' OR $this->uri->segment(2) == 'payment') ? 'active' : '' ?> treeview">
           <a href="#">
             <i class="fa fa-money text-stock"></i> <span>Keuangan</span>
