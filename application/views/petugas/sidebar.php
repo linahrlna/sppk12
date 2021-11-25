@@ -8,7 +8,7 @@
           <?php if ($this->session->userdata('user_image') != null) { ?>
           <img src="<?php echo upload_url().'/users/'.$this->session->userdata('user_image'); ?>" class="img-responsive">
           <?php } else { ?>
-          <img src="<?php echo media_url() ?>img/l-1.jpg" class="img-responsive">
+          <img src="<?php echo media_url() ?>img/admin.jpg" class="img-responsive">
           <?php } ?>
         </div>
         <div class="pull-left info">
@@ -45,7 +45,7 @@
         </li>
         <?php } ?>
 
-        <?php if ($this->session->userdata('uroleid') == EXTRAUSER) { ?>
+        <?php if ($this->session->userdata('uroleid') == SUPERUSER) { ?>
         <li class="<?php echo ($this->uri->segment(2) == 'pos' OR $this->uri->segment(2) == 'payment') ? 'active' : '' ?> treeview">
           <a href="#">
             <i class="fa fa-money text-stock"></i> <span>Keuangan</span>
