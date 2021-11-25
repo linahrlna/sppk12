@@ -72,9 +72,9 @@
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <?php if ($this->session->userdata('user_image') != null) { ?>
-                  <img src="<?php echo upload_url().'/users/'.$this->session->userdata('user_image'); ?>" class="user-image">
+                  <img src="<?php echo upload_url().'/users/petugas.jpg' ?>" class="user-image">
                 <?php } else { ?>
-                  <img src="<?php echo media_url() ?>img/l-1.jpg" class="user-image">
+                  <img src="<?php echo media_url() ?>img/petugas.jpg" class="user-image">
                 <?php } ?>
                 <span class="hidden-xs">Petugas</span>
               </a>
@@ -82,9 +82,9 @@
                 <!-- User image -->
                 <li class="user-header">
                   <?php if ($this->session->userdata('user_image') != null) { ?>
-                    <img src="<?php echo upload_url().'/users/'.$this->session->userdata('user_image'); ?>" class="img-circle">
+                    <img src="<?php echo upload_url().'/users/petugas.jpg' ?>" class="img-circle">
                   <?php } else { ?>
-                    <img src="<?php echo media_url() ?>img/l-1.jpg" class="img-circle">
+                    <img src="<?php echo media_url() ?>img/petugas.jpg" class="img-circle">
                   <?php } ?>
 
                   <p>Petugas
