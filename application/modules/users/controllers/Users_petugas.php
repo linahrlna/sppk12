@@ -10,7 +10,7 @@ class Users_petugas extends CI_Controller {
     if ($this->session->userdata('logged') == NULL) {
         header("Location:" . site_url('petugas/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
     }
-        $list_access = array(SUPERUSER);
+        $list_access = array(EXTRAUSER);
         if (!in_array($this->session->userdata('uroleid'),$list_access)) {
             redirect('petugas');
         }
