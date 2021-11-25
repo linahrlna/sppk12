@@ -97,8 +97,8 @@ class Report_petugas extends CI_Controller {
 		$data['bulan'] = $this->Bulan_model_petugas->get($free);
 		$data['month'] = $this->Bulan_model_petugas->get($params);
 		$data['py'] = $this->Bulan_model_petugas->get($param);
-		$data['bebas'] = $this->Bebas_model_petugas->get($params);
-		$data['free'] = $this->Bebas_model_petugas->get($free);
+		$data['bebas'] = $this->Bebas_model->get($params);
+		$data['free'] = $this->Bebas_model->get($free);
 
 		$config['suffix'] = '?' . http_build_query($_GET, '', "&");
 
