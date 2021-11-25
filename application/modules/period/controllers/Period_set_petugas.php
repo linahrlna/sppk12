@@ -3,14 +3,14 @@
 if (!defined('BASEPATH'))
   exit('No direct script access allowed');
 
-class Period_set extends CI_Controller {
+class Period_set_petugas extends CI_Controller {
 
   public function __construct() {
     parent::__construct(TRUE);
     if ($this->session->userdata('logged') == NULL) {
       header("Location:" . site_url('manage/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
     }
-    $this->load->model(array('period/Period_model', 'payment/Payment_model', 'logs/Logs_model'));
+    $this->load->model(array('period/Period_model_petugas', 'payment/Payment_model_petugas', 'logs/Logs_model_petugas'));
     $this->load->library('upload');
   }
 
