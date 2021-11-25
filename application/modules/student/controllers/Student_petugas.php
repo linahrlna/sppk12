@@ -151,7 +151,7 @@ class Student_petugas extends CI_Controller {
 
     // Delete to database
   public function delete($id = NULL) {
-    if ($this->session->userdata('uroleid')!= SUPERUSER){
+    if ($this->session->userdata('uroleid')!= EXTRAUSER){
       redirect('petugas');
     }
     if ($_POST) {
