@@ -11,7 +11,7 @@ class Dashboard_petugas extends CI_Controller {
             header("Location:" . site_url('petugas/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
         $this->load->model(array('users/Users_model_petugas', 'holiday/Holiday_model'));
-        $this->load->model(array('student/Student_model_petugas', 'kredit/Kredit_model_petugas', 'debit/Debit_model_petugas', 'bulan/Bulan_model_petugas', 'setting/Setting_model_petugas', 'information/Information_model_petugas', 'bebas/Bebas_model', 'bebas/Bebas_pay_model'));
+        $this->load->model(array('student/Student_model_petugas', 'kredit/Kredit_model_petugas', 'debit/Debit_model_petugas', 'bulan/Bulan_model_petugas', 'setting/Setting_model_petugas', 'information/Information_model', 'bebas/Bebas_model', 'bebas/Bebas_pay_model'));
         $this->load->library('user_agent');
     }
 
@@ -20,7 +20,7 @@ class Dashboard_petugas extends CI_Controller {
         $data['user'] = count($this->Users_model_petugas->get());
         $data['student'] = count($this->Student_model_petugas->get(array('status'=>1)));
         $data['kredit'] = $this->Kredit_model_petugas->get(array('date'=> date('Y-m-d')));
-        $data['information'] = $this->Information_model_petugas->get(array('information_publish'=>1));
+        $data['information'] = $this->Information_model->get(array('information_publish'=>1));
         $data['debit'] = $this->Debit_model_petugas->get(array('date'=> date('Y-m-d')));
         $data['bulan_day'] = $this->Bulan_model_petugas->get_total(array('status'=>1, 'date'=> date('Y-m-d')));
         $data['bebas_day'] = $this->Bebas_pay_model->get(array('date'=> date('Y-m-d')));
