@@ -407,8 +407,8 @@ CREATE TABLE `user_roles` (
 
 INSERT INTO `user_roles` (`role_id`, `role_name`) VALUES
 (1, 'SUPERUSER'),
-(2, 'USER');
-
+(2, 'USER'),
+(3, 'EXTRAUSER');
 --
 -- Indexes for dumped tables
 --
