@@ -20,6 +20,6 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('portal3');
+		$this->load->view('portal');
 	}
 }
