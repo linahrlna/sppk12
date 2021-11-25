@@ -15,7 +15,8 @@ SET time_zone = "+00:00";
 --
 INSERT INTO `user_roles` (`role_id`, `role_name`) VALUES
 (1, 'SUPERUSER'),
-(2, 'USER');
+(2, 'USER'),
+(3, 'EXTRAUSER');
 --
 -- Dumping data for table `users`
 --
