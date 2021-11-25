@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 define('SUPERUSER', 1);
 define('USER', 2);
+define('EXTRAUSER', 3);
 
 define('SCHOOL_NAME',1);
 define('SCHOOL_ADRESS',2);
