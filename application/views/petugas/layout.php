@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title> SPP | DASHBOARD </title>
+  <title> SPP | DASHBOARD PETUGAS </title>
   <link rel="icon" type="image/png" href="<?php echo media_url('img/logosmk12.png') ?>">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -74,9 +74,9 @@
                 <?php if ($this->session->userdata('user_image') != null) { ?>
                   <img src="<?php echo upload_url().'/users/'.$this->session->userdata('user_image'); ?>" class="user-image">
                 <?php } else { ?>
-                  <img src="<?php echo media_url() ?>img/admin.jpg" class="user-image">
+                  <img src="<?php echo media_url() ?>img/l-1.jpg" class="user-image">
                 <?php } ?>
-                <span class="hidden-xs">Admin</span>
+                <span class="hidden-xs">Petugas</span>
               </a>
               <ul class="dropdown-menu">
                 <!-- User image -->
@@ -84,12 +84,12 @@
                   <?php if ($this->session->userdata('user_image') != null) { ?>
                     <img src="<?php echo upload_url().'/users/'.$this->session->userdata('user_image'); ?>" class="img-circle">
                   <?php } else { ?>
-                    <img src="<?php echo media_url() ?>img/admin.jpg" class="img-circle">
+                    <img src="<?php echo media_url() ?>img/l-1.jpg" class="img-circle">
                   <?php } ?>
 
-                  <p>Admin
-                    <small>SUPERUSER</small>
-                    <small>admin@gmail.com</small>
+                  <p>Petugas
+                    <small>EXTRAUSER</small>
+                    <small>petugas@gmail.com</small>
                   </p>
                 </li>
                 <!-- Menu Footer-->
