@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Majors_set extends CI_Controller {
+class Majors_set_petugas extends CI_Controller {
 
   public function __construct()
   {
@@ -37,13 +37,13 @@ class Majors_set extends CI_Controller {
     $paramsPage = $params;
     $params['limit'] = 10;
     $params['offset'] = $offset;
-    $data['majors'] = $this->Student_model->get_majors($params);
-    $data['setting_logo'] = $this->Setting_model->get(array('id' => 6));
+    $data['majors'] = $this->Student_model_petugas->get_majors($params);
+    $data['setting_logo'] = $this->Setting_model_petugas->get(array('id' => 6));
     $config['per_page'] = 10;
     $config['uri_segment'] = 4;
     $config['base_url'] = site_url('petugas/majors/index');
     $config['suffix'] = '?' . http_build_query($_GET, '', "&");
-    $config['total_rows'] = count($this->Student_model->get_class($paramsPage));
+    $config['total_rows'] = count($this->Student_model_petugas->get_class($paramsPage));
     $this->pagination->initialize($config);
 
     $data['title'] = 'Program Keahlian';
@@ -60,7 +60,7 @@ class Majors_set extends CI_Controller {
         $params['majors_name'] = $majorsName[$i];
         $params['majors_short_name'] = $majorsShort[$i];
 
-        $this->Student_model->add_majors($params);
+        $this->Student_model_petugas->add_majors($params);
       }
     }
     $this->session->set_flashdata('success',' Tambah Program Keahlian Berhasil');
@@ -98,7 +98,7 @@ class Majors_set extends CI_Controller {
 
             // Edit mode
       if (!is_null($id)) {
-        $object = $this->Student_model->get_majors(array('id' => $id));
+        $object = $this->Student_model_petugas->get_majors(array('id' => $id));
         if ($object == NULL) {
           redirect('petugas/majors');
         } else {
