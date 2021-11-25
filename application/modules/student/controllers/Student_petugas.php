@@ -52,7 +52,7 @@ class Student_petugas extends CI_Controller {
     // Add User and Update
   public function add($id = NULL) {
 
-    $list_access = array(SUPERUSER);
+    $list_access = array(EXTRAUSER);
     if (!in_array($this->session->userdata('uroleid'),$list_access)) {
       redirect('petugas');
     }
