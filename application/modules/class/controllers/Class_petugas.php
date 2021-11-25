@@ -10,7 +10,7 @@ class Class_petugas extends CI_Controller {
     if ($this->session->userdata('logged') == NULL) {
       header("Location:" . site_url('petugas/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
     }
-    $list_access = array(SUPERUSER);
+    $list_access = array(EXTRAUSER);
     if (!in_array($this->session->userdata('uroleid'),$list_access)) {
       redirect('petugas');
     }
@@ -110,7 +110,7 @@ class Class_petugas extends CI_Controller {
 
 // Delete to database
   public function delete($id = NULL) {
-    if ($this->session->userdata('uroleid')!= SUPERUSER){
+    if ($this->session->userdata('uroleid')!= EXTRAUSER){
       redirect('petugas');
     }
     $siswa = $this->Student_model_petugas->get(array('class_id'=>$id));
