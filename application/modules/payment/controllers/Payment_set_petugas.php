@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
   exit('No direct script access allowed');
 
-class Payment_set extends CI_Controller {
+class Payment_set_petugas extends CI_Controller {
 
   public function __construct() {
     parent::__construct(TRUE);
@@ -171,7 +171,7 @@ class Payment_set extends CI_Controller {
     $data['student'] = $this->Bebas_model->get($params);
     $data['payment'] = $this->Payment_model_petugas->get(array('id' => $id));
     $data['title'] = 'Tarif Tagihan';
-    $data['main'] = 'payment/payment_view_bebas_petugas';
+    $data['main'] = 'payment/payment_view_bebas';
     $this->load->view('petugas/layout', $data);
   }
 
@@ -438,7 +438,7 @@ class Payment_set extends CI_Controller {
             $this->Bebas_model->add($param);
           } else {
             $this->session->set_flashdata('failed',' Duplikat Data');
-            redirect('manage/payment/view_bebas/' . $id);
+            redirect('petugas/payment/view_bebas/' . $id);
           }
         }
       }
@@ -526,13 +526,13 @@ class Payment_set extends CI_Controller {
             $this->Bebas_model->add($param);
           } else {
             $this->session->set_flashdata('failed',' Duplikat Data');
-            redirect('manage/payment/view_bebas/' . $id);
+            redirect('petugas/payment/view_bebas/' . $id);
           }
         }
       }
 
       $this->session->set_flashdata('success',' Setting Tarif berhasil');
-      redirect('manage/payment/view_bebas/' . $id);
+      redirect('petugas/payment/view_bebas/' . $id);
 
     } else {
 
@@ -593,7 +593,7 @@ class Payment_set extends CI_Controller {
       redirect('petugas/payment');
     }
 
-    $this->Payment_model->delete($this->input->post('payment_id'));
+    $this->Payment_model_petugas->delete($this->input->post('payment_id'));
             // activity log
     $this->load->model('logs/Logs_model_petugas');
     $this->Logs_model_petugas->add(
