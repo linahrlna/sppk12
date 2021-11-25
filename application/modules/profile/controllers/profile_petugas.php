@@ -101,7 +101,7 @@ class Profile_petugas extends CI_Controller {
 
     // Change Password Manage
     function cpw() {
-        $this->load->model('Logs_model');
+        $this->load->model('Logs_model_petugas');
         $this->load->library('form_validation');
         $this->form_validation->set_rules('user_password', 'Password', 'required|matches[passconf]|min_length[6]');
         $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required|min_length[6]');
