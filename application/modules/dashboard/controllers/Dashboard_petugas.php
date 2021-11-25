@@ -10,7 +10,7 @@ class Dashboard_petugas extends CI_Controller {
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('petugas/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('users/Users_model_petugas', 'holiday/Holiday_model'));
+        $this->load->model(array('users/Users_model_petugas', 'holiday/Holiday_model_petugas'));
         $this->load->model(array('student/Student_model_petugas', 'kredit/Kredit_model_petugas', 'debit/Debit_model_petugas', 'bulan/Bulan_model_petugas', 'setting/Setting_model_petugas', 'information/Information_model', 'bebas/Bebas_model', 'bebas/Bebas_pay_model'));
         $this->load->library('user_agent');
     }
