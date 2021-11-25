@@ -63,9 +63,9 @@ $route['manage/(:any)/(:any)/(:num)'] = "$1/$1_set/$2/$3";
 $route['manage/(:any)/(:any)/(:any)'] = "$1/$1_set/$3_$2";
 $route['manage'] = "dashboard/Dashboard_set";
 
-$route['petugas/auth'] = 'petugas/auth_petugas/login';
+$route['petugas/auth'] = 'auth/auth_petugas/login';
 $route['petugas/([a-zA-Z_-]+)'] = '$1/$1_petugas';
-$route['petugas/auth/(:any)'] = 'petugas/auth_petugas/$1';
+$route['petugas/auth/(:any)'] = 'auth/auth_petugas/$1';
 $route['petugas/([a-zA-Z_-]+)/(:any)'] = '$1/$1_petugas/$2';
 $route['petugas/(:any)/edit/(:num)'] = "$1/$1_petugas/add/$2";
 $route['petugas/(:any)/(:any)/edit/(:num)'] = "$1/$1_petugas/add_$2/$3";
