@@ -6,7 +6,7 @@
       <div class="user-panel">
         <div class="pull-left image">
           <?php if ($this->session->userdata('user_image') != null) { ?>
-          <img src="<?php echo upload_url().'/users/petugas.jpg' ?>" class="img-responsive">
+          <img src="<?php echo upload_url().'/users/Petugas.jpg' ?>" class="img-responsive">
           <?php } else { ?>
           <img src="<?php echo media_url() ?>img/ptgs.jpg" class="img-responsive">
           <?php } ?>
@@ -45,7 +45,7 @@
         </li>
         <?php } ?>
 
-        <?php if ($this->session->userdata('uroleid') == SUPERUSER) { ?>
+        <?php if ($this->session->userdata('uroleid') == EXTRAUSER) { ?>
         <li class="<?php echo ($this->uri->segment(2) == 'pos' OR $this->uri->segment(2) == 'payment') ? 'active' : '' ?> treeview">
           <a href="#">
             <i class="fa fa-money text-stock"></i> <span>Keuangan</span>
@@ -76,7 +76,7 @@
           </ul>
         </li>
 
-        <?php if ($this->session->userdata('uroleid') == SUPERUSER) { ?>
+        <?php if ($this->session->userdata('uroleid') == EXTRAUSER) { ?>
         <li class="<?php echo ($this->uri->segment(2) == 'student' OR $this->uri->segment(2) == 'class' OR $this->uri->segment(2) == 'majors' OR $this->uri->segment(2) == 'period') ? 'active' : '' ?> treeview">
           <a href="#">
             <i class="fa fa-users text-stock"></i> <span>Manajemen Data</span>
