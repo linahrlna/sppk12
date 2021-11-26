@@ -74,7 +74,7 @@
                 <?php if ($this->session->userdata('user_image') != null) { ?>
                   <img src="<?php echo upload_url().'/users/petugas.jpg' ?>" class="user-image">
                 <?php } else { ?>
-                  <img src="<?php echo media_url() ?>img/petugas.jpg" class="user-image">
+                  <img src="<?php echo media_url() ?>img/ptgs.jpg" class="user-image">
                 <?php } ?>
                 <span class="hidden-xs">Petugas</span>
               </a>
@@ -84,7 +84,7 @@
                   <?php if ($this->session->userdata('user_image') != null) { ?>
                     <img src="<?php echo upload_url().'/users/petugas.jpg' ?>" class="img-circle">
                   <?php } else { ?>
-                    <img src="<?php echo media_url() ?>img/petugas.jpg" class="img-circle">
+                    <img src="<?php echo media_url() ?>img/ptgs.jpg" class="img-circle">
                   <?php } ?>
 
                   <p>Petugas
