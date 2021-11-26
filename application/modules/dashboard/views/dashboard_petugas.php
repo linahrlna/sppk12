@@ -212,7 +212,7 @@
       $("#labelYear").text(date.getFullYear());
     },
 
-    eventClick: function(calEvent, jsEvent, view) {
+    eventClick: function(calEvent, jsEvent, view) { 
       $("#delModal").modal('toggle');
       $("#delModal").modal('show');
       $("#idDel").val(calEvent.id);
