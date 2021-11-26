@@ -72,7 +72,7 @@
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <?php if ($this->session->userdata('user_image') != null) { ?>
-                  <img src="<?php echo upload_url().'/users/'.$this->session->userdata('user_image'); ?>" class="user-image">
+                  <img src="<?php echo upload_url().'/users/Admin.jpg' ?>" class="user-image">
                 <?php } else { ?>
                   <img src="<?php echo media_url() ?>img/admin.jpg" class="user-image">
                 <?php } ?>
@@ -82,7 +82,7 @@
                 <!-- User image -->
                 <li class="user-header">
                   <?php if ($this->session->userdata('user_image') != null) { ?>
-                    <img src="<?php echo upload_url().'/users/'.$this->session->userdata('user_image'); ?>" class="img-circle">
+                    <img src="<?php echo upload_url().'/users/Admin.jpg' ?>" class="img-circle">
                   <?php } else { ?>
                     <img src="<?php echo media_url() ?>img/admin.jpg" class="img-circle">
                   <?php } ?>
