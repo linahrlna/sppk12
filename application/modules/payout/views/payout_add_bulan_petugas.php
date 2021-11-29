@@ -167,7 +167,7 @@ $(function(){
 
 		$scope.getPayout = function() {
 
-			var url = SITEURL + 'api/get_payout_bulan/'+payment_id+'/'+student_id;
+			var url = SITEURL + 'api2/get_payout_bulan/'+payment_id+'/'+student_id;
 			$http.get(url).then(function(response) {
 				$scope.payouts = response.data;
 			});
