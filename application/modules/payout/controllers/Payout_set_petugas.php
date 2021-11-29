@@ -10,7 +10,7 @@ class Payout_set_petugas extends CI_Controller {
     if ($this->session->userdata('logged') == NULL) {
       header("Location:" . site_url('petugas/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
     }
-    $this->load->model(array('payment/Payment_model_petugas', 'student/Student_model_petugas', 'period/Period_model_petugas', 'pos/Pos_model_petugas', 'bulan/Bulan_model_petugas', 'bebas/Bebas_model', 'bebas/Bebas_pay_model', 'setting/Setting_model_petugas', 'letter/Letter_model_petugas', 'logs/Logs_model_petugas', 'ltrx/Log_trx_model'));
+    $this->load->model(array('payment/Payment_model_petugas', 'student/Student_model_petugas', 'period/Period_model_petugas', 'pos/Pos_model_petugas', 'bulan/Bulan_model_petugas', 'bebas/Bebas_model', 'bebas/Bebas_pay_model', 'setting/Setting_model_petugas', 'letter/Letter_model_petugas', 'logs/Logs_model_petugas', 'ltrx/Log_trx_model_petugas'));
 
   }
 
@@ -148,7 +148,7 @@ class Payout_set_petugas extends CI_Controller {
     $data['bulan'] = $this->Bulan_model_petugas->get($pay);
     $data['bebas'] = $this->Bebas_model->get($pay);
 
-    $data['setting_district'] = $this->Setting_model->get(array('id' => SCHOOL_DISTRICT)); 
+    $data['setting_district'] = $this->Setting_model_petugas->get(array('id' => SCHOOL_DISTRICT)); 
 
     $html = $this->load->view('payout/payout_bill_petugas_pdf', $data, true);
     $data = pdf_create($html, $siswa['student_full_name'], TRUE, 'A4', TRUE);
@@ -256,11 +256,11 @@ class Payout_set_petugas extends CI_Controller {
 // View data detail
   public function view_bebas($id = NULL) {
 
-    $data['payment'] = $this->Payment_model->get(array('id' => $id));
+    $data['payment'] = $this->Payment_model_petugas->get(array('id' => $id));
     $data['bebas'] = $this->Bebas_model->get(array('id' => $id));
     $data['title'] = 'Tarif Pembayaran';
     $data['main'] = 'payment/payment_view_bebas';
-    $this->load->view('manage/layout', $data);
+    $this->load->view('petugas/layout', $data);
   }
 
 
@@ -295,7 +295,7 @@ class Payout_set_petugas extends CI_Controller {
   public function payout_bebas($id = NULL, $student_id = NULL, $bebas_id = NULL, $pay_id =NULL) {
 
     // if ($id == NULL AND $student_id == NULL AND $bebas_id == NULL OR $bebas_id == NULL) {
-    //   redirect('manage/payout');
+    //   redirect('petugas/payout');
     // }
     if ($_POST == TRUE) {
 
@@ -307,7 +307,7 @@ class Payout_set_petugas extends CI_Controller {
       $activated = $this->Setting_model_petugas->get(array('id' => 10));
 
       if ($lastletter['letter_year'] < date('Y') OR count($lastletter) == 0) {
-        $this->Letter_model->add(array('letter_number' => '00001', 'letter_month' => date('m'), 'letter_year' => date('Y')));
+        $this->Letter_model_petugas->add(array('letter_number' => '00001', 'letter_month' => date('m'), 'letter_year' => date('Y')));
         $nomor = sprintf('%05d', '00001');
         $nofull = date('Y'). date('m'). $nomor;
       } else {
@@ -346,7 +346,7 @@ class Payout_set_petugas extends CI_Controller {
 
       if ($this->input->post('bebas_pay_bill') > $sisa OR $this->input->post('bebas_pay_bill') == 0) {
         $this->session->set_flashdata('failed',' Pembayaran yang anda masukkan melebihi total tagihan!!!');
-        redirect('manage/payout?n='.$student['period_period_id'].'&r='.$student['student_nis']);
+        redirect('petugas/payout?n='.$student['period_period_id'].'&r='.$student['student_nis']);
       } else {
 
         $idd = $this->Bebas_pay_model->add($param);
@@ -405,8 +405,8 @@ class Payout_set_petugas extends CI_Controller {
       }
 
       $data['title'] = 'Tagihan Siswa';
-      // $data['main'] = 'payout/payout_add_bebas';
-      $this->load->view('payout/payout_add_bebas', $data);
+      // $data['main'] = 'payout/payout_add_bebas_petugas';
+      $this->load->view('payout/payout_add_bebas_petugas', $data);
 
     }
   }
@@ -421,7 +421,7 @@ class Payout_set_petugas extends CI_Controller {
     $activated = $this->Setting_model_petugas->get(array('id' => 10));
 
     if ($lastletter['letter_year'] < date('Y') OR count($lastletter) == 0) {
-      $this->Letter_model->add(array('letter_number' => '00001', 'letter_month' => date('m'), 'letter_year' => date('Y')));
+      $this->Letter_model_petugas->add(array('letter_number' => '00001', 'letter_month' => date('m'), 'letter_year' => date('Y')));
       $nomor = sprintf('%05d', '00001');
       $nofull = date('Y'). date('m'). $nomor;
     } else {
@@ -451,7 +451,7 @@ class Payout_set_petugas extends CI_Controller {
 
     $status = $this->Bulan_model_petugas->add($pay);
 
-    $this->Log_trx_model->add($log);
+    $this->Log_trx_model_petugas->add($log);
 
     if ($activated['setting_value'] == 'Y') {
 
@@ -520,7 +520,7 @@ class Payout_set_petugas extends CI_Controller {
     $this->load->helper(array('tanggal'));
 
     if ($id == NULL)
-      redirect('petugas/payout/payout_bulan/'.$payment_id.'/'.$student_id);
+      redirect('petugas/payout/payout_bulan_petugas/'.$payment_id.'/'.$student_id);
 
     $data['printpay'] = $this->Bulan_model_petugas->get(array('id' =>$id));
 
@@ -618,7 +618,7 @@ class Payout_set_petugas extends CI_Controller {
       echo $status;
     } else {
       $this->session->set_flashdata('success', 'Delete Berhasil');
-      redirect('manage/payout/payout_bebas/' . $payment_id.'/'.$student_id.'/'.$bebas_id);
+      redirect('petugas/payout/payout_bebas/' . $payment_id.'/'.$student_id.'/'.$bebas_id);
     }
     
   }
