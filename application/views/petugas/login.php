@@ -22,9 +22,9 @@
     <div class="col-md-5">
       <div class="logo hidden-xs hidden-sm">
         <?php if (isset($setting_logo) AND $setting_logo['setting_value'] == NULL) { ?>
-        <img src="<?php echo media_url('img/logo.png') ?>" class="img-responsive">
+        <img src="<?php echo media_url('logos/spp3.svg') ?>" style="height: 200px; width:150px;" class="img-responsive">
         <?php } else { ?>
-        <img src="<?php echo upload_url('school/logo_smk.png') ?>" class="img-responsive">
+        <img src="<?php echo upload_url('logos/spp12.png') ?>" style="height: 130px; width:200px;" class="img-responsive">
         <?php } ?>
       </div>
       <p class="merk"><span style="color: #c9982f">SPP</span> SMKN 12 Malang</p> 
