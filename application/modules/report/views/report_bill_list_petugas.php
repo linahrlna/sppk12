@@ -57,7 +57,7 @@
 							<button type="submit" class="btn btn-primary">Filter</button>
 							<?php if ($q AND !empty($py)) { ?>
 							<a class="btn btn-success" href="<?php echo site_url('petugas/report/report_bill_detail' . '/?' . http_build_query($q)) ?>"><i class="fa fa-file-excel-o" ></i> Export Excel</a>
-							<embed type="application/pdf" src="Laporan_bulanan.pdf" width="1150" height="1000"></embed>
+							
 							<?php } ?>
 						</div>
 					</div>
