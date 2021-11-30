@@ -28,7 +28,7 @@
 	<nav class="navbar navbar-default fixed">
 		<div class="navbar-header"> 
 			<a class="navbar-brand" href=""> <b>PEMBAYARAN SPP</b>
-				
+			<img src="<?php echo upload_url('school/logo_smk.png') ?>" style="height: 40px; margin-top: -10px;" class="pull-left">
 				
 				
 				 </a>
