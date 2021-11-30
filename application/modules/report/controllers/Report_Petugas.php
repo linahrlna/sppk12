@@ -131,8 +131,8 @@ class Report_petugas extends CI_Controller {
 
 
 		$data['bulan'] = $this->Bulan_model_petugas->get($params);
-		$data['bebas'] = $this->Bebas_model_petugas->get($params);
-		$data['free'] = $this->Bebas_pay_model_petugas->get($params);
+		$data['bebas'] = $this->Bebas_model->get($params);
+		$data['free'] = $this->Bebas_pay_model->get($params);
 		$data['kredit'] = $this->Kredit_model_petugas->get($params);
 		$data['debit'] = $this->Debit_model_petugas->get($params);
 		$data['setting_school'] = $this->Setting_model_petugas->get(array('id' => SCHOOL_NAME));
@@ -289,8 +289,8 @@ class Report_petugas extends CI_Controller {
 		$data['bulan'] = $this->Bulan_model_petugas->get($free);
 		$data['month'] = $this->Bulan_model_petugas->get($params);
 		$data['py'] = $this->Bulan_model_petugas->get($param);
-		$data['bebas'] = $this->Bebas_model_petugas->get($params);
-		$data['free'] = $this->Bebas_model_petugas->get($free);
+		$data['bebas'] = $this->Bebas_model->get($params);
+		$data['free'] = $this->Bebas_model->get($free);
 
 		$data['setting_school'] = $this->Setting_model_petugas->get(array('id' => SCHOOL_NAME));
 
@@ -446,4 +446,4 @@ class Report_petugas extends CI_Controller {
 }
 
 /* End of file Report_set.php */
-/* Location: ./application/modules/report/controllers/Report_set.php */
+/* Location: ./application/modules/report/controllers/Report_petugas.php */
