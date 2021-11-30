@@ -184,7 +184,7 @@ class Payment_set_petugas extends CI_Controller {
 
       if (count($bebas) > 0) {
         $this->session->set_flashdata('failed', 'Pembayaran Siswa tidak dapat dihapus');
-        redirect('manage/payment/view_bebas/'.$id);
+        redirect('petugas/payment/view_bebas/'.$id);
       }
 
       $this->Bebas_model->delete_bebas(array(
@@ -194,7 +194,7 @@ class Payment_set_petugas extends CI_Controller {
       ));
       
       $this->session->set_flashdata('success', 'Hapus Pembayaran Siswa berhasil');
-      redirect('manage/payment/view_bebas/'.$id);
+      redirect('petugas/payment/view_bebas/'.$id);
   }
 
   public function add_payment_bulan_student_petugas($id = NULL) {
