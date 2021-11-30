@@ -294,7 +294,7 @@ class Report_set extends CI_Controller {
 
 		$data['setting_school'] = $this->Setting_model->get(array('id' => SCHOOL_NAME));
 
-		$this->load->library("PHPExcel/Laporan_bulanan.pdf");
+		$this->load->library("PHPExcel");
 		$objXLS   = new PHPExcel();
 		$objSheet = $objXLS->setActiveSheetIndex(0);            
 		$cell     = 7;        
