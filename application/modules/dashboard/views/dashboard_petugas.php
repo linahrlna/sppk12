@@ -35,7 +35,7 @@
 
       <div class="col-md-4 col-sm-6 col-xs-12">
         <div class="info-box">
-          <span class="info-box-icon bg-grey"><i class="fa fa-bank"></i></span>
+          <span class="info-box-icon bg-grey"><i class="fa fa-credit-card"></i></span>
 
           <div class="info-box-content">
             <?php
