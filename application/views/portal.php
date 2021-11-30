@@ -46,7 +46,7 @@
 				<div class="col-md-6 float-center" >
 					<a href="<?php echo site_url('petugas') ?>">
 					<div class="box text-center">
-						<i class="fa fa-desktop icon-menu"></i>
+						<i class="fa fa-user icon-menu"></i>
 						<br>
 						Login Petugas
 					</div>
@@ -55,7 +55,7 @@
 				<div class="col-md-6 float-center">
 					<a href="<?php echo site_url('home') ?>">
 					<div class="box text-center">
-						<i class="fa fa-credit-card icon-menu"></i>
+						<i class="fa fa-desktop icon-menu"></i>
 						<br>
 						Cek Pembayaran Siswa
 					</div>
