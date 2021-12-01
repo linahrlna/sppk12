@@ -30,12 +30,6 @@
 							</div>
 							<?php echo form_close(); ?>
 						</div>
-						<div style="margin-top: -30px; margin-left: 185px;">
-							<form action="<?php echo site_url('manage/student/multiple'); ?>" method="post">
-								<input type="hidden" name="action" value="printPdf">
-								<button type="submit" class="btn btn-danger btn-sm" formtarget="_blank"><span class="fa fa-print"></span> Cetak</button>
-							</div>
-						</div>
 						<!-- /.box-header -->
 						<div class="box-body table-responsive">
 							<table class="table table-hover">
@@ -67,7 +61,6 @@
 													<?php if ($this->session->userdata('uroleid') != USER) { ?>
 													<a href="<?php echo site_url('manage/student/edit/' . $row['student_id']) ?>" class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit"><i class="fa fa-edit"></i></a>
 													<?php } ?>
-													<a href="<?php echo site_url('manage/student/printPdf/' . $row['student_id']) ?>" class="btn btn-success btn-xs view-pdf" data-toggle="tooltip" title="Cetak Kartu"><i class="fa fa-print"></i></a>
 												</td>	
 											</tr>
 											<?php
