@@ -39,7 +39,8 @@
 			<div class="row">
 				<div class="col-md-12">
 				
-					<h1><i class="fa fa-graduation-cap"></i> SELAMAT DATANG</h1>
+					<h1><a href="<?php echo site_url('manage') ?>">
+						<i class="fa fa-graduation-cap"></i> SELAMAT DATANG</h1>
 					<p class="lead mb-5 colr">SISTEM PEMBAYARAN SPP SMKN 12 MALANG</p>
                 
 				</div>	
