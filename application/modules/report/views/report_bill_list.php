@@ -56,8 +56,7 @@
 							<div style="margin-top:25px;">
 							<button type="submit" class="btn btn-primary">Filter</button>
 							<?php if ($q AND !empty($py)) { ?>
-							<a class="btn btn-success" href="<?php echo site_url('manage/report/report_bill_detail' . '/?' . http_build_query($q)) ?>">
-							<i class="fa fa-file-excel-o" ></i> Export Excel</a>
+							<a class="btn btn-success" href="<?php echo site_url('manage/report/report_bill_detail' . '/?' . http_build_query($q)) ?>"><i class="fa fa-file-excel-o" ></i> Export Excel</a>
 							<?php } ?>
 						</div>
 					</div>
